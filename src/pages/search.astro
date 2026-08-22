@@ -1,0 +1,305 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { getAllTags } from "../lib/content";
+
+const tags = await getAllTags();
+const initialQuery = new URL(Astro.url).searchParams.get("q") || "";
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Search", url: "/search" },
+];
+---
+
+<BaseLayout
+  title="Search"
+  description="Search all articles, categories, and tags on the site."
+  noindex
+>
+  <section class="search-page">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <header class="search-head">
+        <h1>Search</h1>
+        <p>Find guides, tutorials, and answers across the whole site.</p>
+      </header>
+
+      <div class="search-box">
+        <div class="search-box__field">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+            <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <input
+            type="search"
+            data-page-search
+            value={initialQuery}
+            placeholder="Try “android slow”, “wifi not working”, “backup iphone”…"
+            autocomplete="off"
+            aria-label="Search the site"
+          />
+        </div>
+        <p class="search-box__hint" data-page-hint role="status" aria-live="polite"></p>
+        <ul class="search-box__results" data-page-results aria-live="polite"></ul>
+      </div>
+
+      {tags.length > 0 && (
+        <section class="tags-panel" aria-labelledby="tags-title">
+          <h2 id="tags-title">Popular tags</h2>
+          <div class="tags-cloud">
+            {tags.slice(0, 40).map(({ tag, count }) => (
+              <a class="tag-pill" href={`/articles/tag/${tag}`}>
+                #{tag} <span class="tag-count">{count}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .search-page {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .search-head {
+    margin-bottom: 1.75rem;
+  }
+
+  .search-head h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .search-head p {
+    color: var(--ink-soft);
+  }
+
+  .search-box {
+    max-width: 720px;
+  }
+
+  .search-box__field {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1.5px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: 0.85rem 1.1rem;
+    background: var(--surface);
+    color: var(--ink-muted);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .search-box__field:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+
+  .search-box__field input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: 1.05rem;
+    padding: 0.2rem 0;
+  }
+
+  .search-box__hint {
+    margin-top: 0.85rem;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+  }
+
+  .search-box__results {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .search-box__results li a {
+    display: block;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    text-decoration: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .search-box__results li a:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .search-box__results .r-title {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 1.02rem;
+  }
+
+  .search-box__results .r-meta {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin-top: 0.25rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .search-box__results .r-cat {
+    color: var(--accent-strong);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+
+  .search-box__results .r-desc {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin-top: 0.3rem;
+    line-height: 1.5;
+  }
+
+  .search-empty {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+  }
+
+  .tags-panel {
+    margin-top: 3rem;
+    max-width: 720px;
+  }
+
+  .tags-panel h2 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+
+  .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    background: var(--surface);
+  }
+
+  .tag-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+  }
+
+  .tag-count {
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+  }
+</style>
+
+<script>
+  interface IndexItem {
+    title: string;
+    url: string;
+    category: string;
+    categoryUrl: string;
+    tags: string[];
+    description: string;
+    content: string;
+  }
+
+  const input = document.querySelector<HTMLInputElement>("[data-page-search]");
+  const results = document.querySelector<HTMLUListElement>("[data-page-results]");
+  const hint = document.querySelector<HTMLParagraphElement>("[data-page-hint]");
+
+  const esc = (s: string) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+  let index: IndexItem[] | null = null;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+
+  async function loadIndex(): Promise<void> {
+    if (index) return;
+    const res = await fetch("/search-index.json");
+    index = (await res.json()) as IndexItem[];
+  }
+
+  function render(query: string) {
+    if (!results || !index) return;
+    const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+
+    if (terms.length === 0) {
+      results.innerHTML = "";
+      if (hint) hint.textContent = "";
+      return;
+    }
+
+    const scored = index
+      .map((item) => {
+        const title = item.title.toLowerCase();
+        const content = item.content.toLowerCase();
+        const cat = item.category.toLowerCase();
+        const tags = item.tags.join(" ").toLowerCase();
+        let score = 0;
+        for (const t of terms) {
+          if (title.includes(t)) score += 5;
+          if (tags.includes(t)) score += 3;
+          if (cat.includes(t)) score += 2;
+          if (content.includes(t)) score += 1;
+        }
+        return { item, score };
+      })
+      .filter((r) => r.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 20);
+
+    if (hint) {
+      hint.textContent =
+        scored.length === 0
+          ? `No results for “${query}”. Try different keywords.`
+          : `${scored.length} result${scored.length === 1 ? "" : "s"} for “${query}”.`;
+    }
+
+    results.innerHTML =
+      scored.length === 0
+        ? `<li class="search-empty">Nothing found. Try a broader term, or browse the <a href="/categories">categories</a>.</li>`
+        : scored
+            .map(
+              ({ item }) => `
+              <li>
+                <a href="${esc(item.url)}">
+                  <div class="r-title">${esc(item.title)}</div>
+                  <div class="r-meta"><span class="r-cat">${esc(item.category)}</span><span>${esc(item.description)}</span></div>
+                </a>
+              </li>`,
+            )
+            .join("");
+  }
+
+  input?.addEventListener("input", () => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => render(input.value), 120);
+    if (history.replaceState) {
+      history.replaceState(null, "", input.value ? `/search?q=${encodeURIComponent(input.value)}` : "/search");
+    }
+  });
+
+  (async () => {
+    await loadIndex();
+    render(input?.value || "");
+  })();
+</script>

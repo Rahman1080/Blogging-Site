@@ -1,0 +1,52 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticlesList from "@/components/ArticlesList.astro";
+import { categories, siteConfig } from "@/data/site";
+import { getAllArticles } from "@/lib/content";
+import { breadcrumbSchema } from "@/lib/seo";
+
+export async function getStaticPaths() {
+  return categories.map((c) => ({
+    params: { category: c.slug },
+    props: { category: c },
+  }));
+}
+
+const { category } = Astro.props;
+const pageSize = siteConfig.pagination.pageSize;
+const allArticles = await getAllArticles();
+const inCategory = allArticles.filter((a) => a.data.category === category.slug);
+const totalPages = Math.max(1, Math.ceil(inCategory.length / pageSize));
+const articles = inCategory.slice(0, pageSize);
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Categories", url: "/categories" },
+  { name: category.name, url: `/articles/category/${category.slug}` },
+];
+
+const description = `${category.description} ${totalPages > 0 ? `${inCategory.length} article${inCategory.length === 1 ? "" : "s"}.` : ""}`;
+---
+
+<BaseLayout
+  title={`${category.name} — Articles`}
+  description={description}
+  jsonLd={[
+    breadcrumbSchema(crumbs),
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: `${category.name} articles`,
+      description: category.description,
+    },
+  ]}
+>
+  <ArticlesList
+    articles={articles}
+    current={1}
+    totalPages={totalPages}
+    basePath={`/articles/category/${category.slug}`}
+    heading={category.name}
+    activeCategory={category.slug}
+  />
+</BaseLayout>

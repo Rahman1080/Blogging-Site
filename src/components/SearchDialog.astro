@@ -1,0 +1,285 @@
+---
+const placeholder = "Search guides, how-tos, fixes…";
+---
+
+<button class="search-trigger" data-search-open type="button" aria-haspopup="dialog">
+  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+    <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+  </svg>
+  <span>Search</span>
+</button>
+
+<dialog class="search-dialog" data-search-dialog aria-label="Search the site">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+        <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      <input
+        type="search"
+        data-search-input
+        placeholder={placeholder}
+        autocomplete="off"
+        aria-label="Search articles, categories, and tags"
+      />
+      <button class="search-close" data-search-close type="button" aria-label="Close search">✕</button>
+    </div>
+    <p class="search-hint" data-search-hint>Start typing to search articles, categories, and tags.</p>
+    <ul class="search-results" data-search-results aria-live="polite"></ul>
+  </div>
+</dialog>
+
+<style>
+  .search-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--line-strong);
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .search-trigger:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+  }
+
+  .search-dialog {
+    border: 0;
+    padding: 0;
+    width: min(92vw, 640px);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    background: var(--surface);
+  }
+
+  .search-dialog::backdrop {
+    background: rgba(18, 16, 12, 0.5);
+  }
+
+  .search-panel {
+    padding: 1.25rem;
+  }
+
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1.5px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    padding: 0.55rem 0.9rem;
+    color: var(--ink-muted);
+  }
+
+  .search-field:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .search-field input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    padding: 0.15rem 0;
+  }
+
+  .search-close {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: var(--ink-muted);
+    font-size: 1rem;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .search-close:hover {
+    color: var(--ink);
+  }
+
+  .search-hint {
+    margin-top: 0.9rem;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+  }
+
+  .search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    display: grid;
+    gap: 0.5rem;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .search-results li a {
+    display: block;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .search-results li a:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .search-results .result-title {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 0.98rem;
+  }
+
+  .search-results .result-meta {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    margin-top: 0.2rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .search-results .result-meta .result-cat {
+    color: var(--accent-strong);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+
+  .search-empty {
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+    padding: 0.5rem 0;
+  }
+
+  @media (max-width: 640px) {
+    .search-trigger span {
+      display: none;
+    }
+
+    .search-trigger {
+      width: 42px;
+      height: 42px;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+</style>
+
+<script>
+  interface IndexItem {
+    title: string;
+    url: string;
+    category: string;
+    categoryUrl: string;
+    tags: string[];
+    description: string;
+    content: string;
+  }
+
+  const dialog = document.querySelector<HTMLDialogElement>("[data-search-dialog]");
+  const openBtn = document.querySelector("[data-search-open]");
+  const closeBtn = document.querySelector<HTMLButtonElement>("[data-search-close]");
+  const input = document.querySelector<HTMLInputElement>("[data-search-input]");
+  const results = document.querySelector<HTMLUListElement>("[data-search-results]");
+  const hint = document.querySelector<HTMLParagraphElement>("[data-search-hint]");
+
+  const esc = (s: string) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+  let index: IndexItem[] | null = null;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+
+  async function loadIndex(): Promise<void> {
+    if (index) return;
+    const res = await fetch("/search-index.json");
+    index = (await res.json()) as IndexItem[];
+  }
+
+  function renderResults(query: string) {
+    if (!results || !index) return;
+    const q = query.toLowerCase().trim();
+    const terms = q.split(/\s+/).filter(Boolean);
+    if (terms.length === 0) {
+      results.innerHTML = "";
+      if (hint) hint.textContent = "Start typing to search articles, categories, and tags.";
+      return;
+    }
+
+    const scored = index
+      .map((item) => {
+        const title = item.title.toLowerCase();
+        const content = item.content.toLowerCase();
+        const cat = item.category.toLowerCase();
+        const tags = item.tags.join(" ").toLowerCase();
+        let score = 0;
+        for (const t of terms) {
+          if (title.includes(t)) score += 5;
+          if (tags.includes(t)) score += 3;
+          if (cat.includes(t)) score += 2;
+          if (content.includes(t)) score += 1;
+        }
+        return { item, score };
+      })
+      .filter((r) => r.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 12);
+
+    if (scored.length === 0) {
+      results.innerHTML =
+        `<li class="search-empty">No results for “${esc(query)}”. Try a different term.</li>`;
+      if (hint) hint.textContent = `${scored.length} results`;
+      return;
+    }
+
+    if (hint) hint.textContent = `${scored.length} result${scored.length === 1 ? "" : "s"}`;
+    results.innerHTML = scored
+      .map(
+        ({ item }) => `
+        <li>
+          <a href="${esc(item.url)}">
+            <div class="result-title">${esc(item.title)}</div>
+            <div class="result-meta">
+              <span class="result-cat">${esc(item.category)}</span>
+              <span>${esc(item.description)}</span>
+            </div>
+          </a>
+        </li>`,
+      )
+      .join("");
+  }
+
+  openBtn?.addEventListener("click", async () => {
+    dialog?.showModal();
+    await loadIndex();
+    setTimeout(() => input?.focus(), 50);
+  });
+
+  closeBtn?.addEventListener("click", () => dialog?.close());
+  dialog?.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  input?.addEventListener("input", () => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => renderResults(input.value), 120);
+  });
+
+  input?.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") dialog?.close();
+  });
+</script>

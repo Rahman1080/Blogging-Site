@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLatestArticles, articleUrl } from "../lib/content";
+
+const latest = await getLatestArticles(4);
+---
+
+<BaseLayout
+  title="Page not found"
+  description="The page you were looking for could not be found."
+  noindex
+>
+  <section class="notfound">
+    <div class="container container-narrow">
+      <p class="notfound__code">404</p>
+      <h1>This page has gone missing.</h1>
+      <p class="notfound__text">
+        The link may be outdated, the page may have moved, or the address may have a typo.
+        Here are a few things you can do:
+      </p>
+      <div class="notfound__actions">
+        <a class="btn btn-primary" href="/">Go to homepage</a>
+        <a class="btn btn-secondary" href="/search">Search the site</a>
+        <a class="btn btn-ghost" href="/categories">Browse categories</a>
+      </div>
+
+      {
+        latest.length > 0 && (
+          <div class="notfound__latest">
+            <h2>Recently published</h2>
+            <ul>
+              {latest.map((a) => (
+                <li>
+                  <a href={articleUrl(a)}>{a.data.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    padding-block: clamp(3rem, 10vw, 6rem);
+    text-align: center;
+  }
+
+  .notfound__code {
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .notfound h1 {
+    margin-bottom: 0.75rem;
+  }
+
+  .notfound__text {
+    color: var(--ink-soft);
+    max-width: 40ch;
+    margin: 0 auto 1.75rem;
+  }
+
+  .notfound__actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .notfound__latest {
+    text-align: left;
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+  }
+
+  .notfound__latest h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .notfound__latest ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .notfound__latest a {
+    color: var(--link);
+    text-decoration: none;
+  }
+
+  .notfound__latest a:hover {
+    text-decoration: underline;
+  }
+</style>

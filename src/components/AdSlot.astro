@@ -1,0 +1,57 @@
+---
+interface Props {
+  format?: "leaderboard" | "rectangle" | "inline";
+  label?: string;
+}
+
+const enabled = import.meta.env.PUBLIC_ADS_ENABLED === "true";
+
+const { format = "leaderboard", label = "Advertisement" } = Astro.props;
+---
+
+{
+  enabled && (
+    <div class={`ad ad--${format} no-print`} role="complementary" aria-label="Advertisement">
+      <span class="ad__label">{label}</span>
+      <div class="ad__slot">
+        <!-- Ad network code goes here (e.g. AdSense, Ezoic). Kept empty until monetization is configured. -->
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .ad {
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem;
+    margin-block: 1.5rem;
+  }
+
+  .ad__label {
+    display: block;
+    text-align: center;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    margin-bottom: 0.35rem;
+  }
+
+  .ad__slot {
+    background: var(--surface-2);
+    border-radius: 6px;
+    min-height: 90px;
+  }
+
+  .ad--rectangle .ad__slot {
+    min-height: 250px;
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  .ad--inline .ad__slot {
+    min-height: 120px;
+  }
+</style>

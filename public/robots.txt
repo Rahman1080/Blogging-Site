@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Admin and private areas — never index these
+Disallow: /drafts/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*/draft/
+
+# The search page duplicates article content; let Google index the articles themselves
+Disallow: /search
+
+Sitemap: https://deli-dailyupdatesworld.com/sitemap-index.xml

@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticlesList from "@/components/ArticlesList.astro";
+import { getAllArticles } from "@/lib/content";
+import { siteConfig } from "@/data/site";
+
+export async function getStaticPaths() {
+  const pageSize = siteConfig.pagination.pageSize;
+  const allArticles = await getAllArticles();
+  const totalPages = Math.max(1, Math.ceil(allArticles.length / pageSize));
+  return Array.from({ length: totalPages - 1 }, (_, i) => {
+    const page = i + 2;
+    return {
+      params: { page: String(page) },
+      props: { page, totalPages },
+    };
+  });
+}
+
+const { page, totalPages } = Astro.props;
+const pageSize = siteConfig.pagination.pageSize;
+const allArticles = await getAllArticles();
+const articles = allArticles.slice((page - 1) * pageSize, page * pageSize);
+---
+
+<BaseLayout
+  title={`Articles — Page ${page}`}
+  description={`All evergreen guides and how-tos. Page ${page} of ${totalPages}.`}
+  canonical={`https://${Astro.url.host}/articles/page/${page}/`}
+>
+  <ArticlesList
+    articles={articles}
+    current={page}
+    totalPages={totalPages}
+    basePath="/articles"
+    heading="All articles"
+  />
+</BaseLayout>

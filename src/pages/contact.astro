@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import { siteConfig } from "../data/site";
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Contact", url: "/contact" },
+];
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with the Deli Daily Updates World editorial team."
+>
+  <PageLayout title="Contact us" breadcrumbs={crumbs}>
+    <p>
+      Have a question, a correction, a topic request, or a partnership idea? We'd love to hear
+      from you. We read every message, though we can't always reply to every single one.
+    </p>
+
+    <h2>Email</h2>
+    <p>
+      The fastest way to reach us is by email at{" "}
+      <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+    </p>
+
+    <h2>Send a message</h2>
+    <form class="contact-form" data-contact-form novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="contact-name">Your name</label>
+          <input id="contact-name" type="text" name="name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="contact-email">Your email</label>
+          <input id="contact-email" type="email" name="email" autocomplete="email" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="contact-topic">Topic</label>
+        <select id="contact-topic" name="topic">
+          <option value="general">General question</option>
+          <option value="correction">Correction or feedback</option>
+          <option value="topic-request">Article topic request</option>
+          <option value="partnership">Partnership / advertising</option>
+          <option value="privacy">Privacy question</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" required placeholder="How can we help?"></textarea>
+      </div>
+      <p class="contact-status" data-contact-status role="status" aria-live="polite"></p>
+      <button type="submit" class="btn btn-primary">Send message</button>
+    </form>
+
+    <p class="contact-note">
+      This static site has no server, so messages open in your email app addressed to us — nothing
+      is stored on this website.
+    </p>
+  </PageLayout>
+</BaseLayout>
+
+<style>
+  .contact-form {
+    display: grid;
+    gap: 1.1rem;
+    max-width: 34rem;
+    margin-block: 1.2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+
+  .contact-status {
+    font-size: 0.92rem;
+    min-height: 1.3em;
+  }
+
+  .contact-status.error {
+    color: #9a2a1d;
+  }
+
+  .contact-status.success {
+    color: var(--accent-strong);
+    font-weight: 600;
+  }
+
+  .contact-note {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    max-width: 34rem;
+  }
+
+  @media (max-width: 560px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+  const status = document.querySelector<HTMLParagraphElement>("[data-contact-status]");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const topic = String(data.get("topic") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    if (!name || !email || !message) {
+      if (status) {
+        status.textContent = "Please fill in your name, email, and message.";
+        status.className = "contact-status error";
+      }
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (status) {
+        status.textContent = "Please enter a valid email address.";
+        status.className = "contact-status error";
+      }
+      return;
+    }
+
+    const subject = encodeURIComponent(`[Contact] ${topic} — from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    window.location.href = `mailto:${encodeURIComponent(import.meta.env.PUBLIC_CONTACT_EMAIL || "hello@deli-dailyupdatesworld.com")}?subject=${subject}&body=${body}`;
+
+    if (status) {
+      status.textContent = "Opening your email app…";
+      status.className = "contact-status success";
+    }
+  });
+</script>

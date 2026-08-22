@@ -1,0 +1,19 @@
+---
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { getAllArticles, entrySlug } from "@/lib/content";
+
+export async function getStaticPaths() {
+  const articles = await getAllArticles();
+  return articles.map((entry) => ({
+    params: { slug: entrySlug(entry) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+---
+
+<ArticleLayout entry={entry} headings={headings}>
+  <Content slot="content" />
+</ArticleLayout>

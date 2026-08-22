@@ -1,0 +1,23 @@
+{
+  "name": "deli-dailyupdatesworld",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deli Daily Updates World — an evergreen information and blogging platform built with Astro.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "draft": "node scripts/generate-draft.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
+    "typescript": "^5.7.2"
+  }
+}

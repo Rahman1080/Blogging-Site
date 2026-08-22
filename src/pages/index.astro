@@ -1,0 +1,462 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import { featuredCategories, siteConfig, getCategory } from "../data/site";
+import {
+  getFeaturedArticles,
+  getLatestArticles,
+  getPopularArticles,
+  getArticlesByCategory,
+  articleUrl,
+  ARTICLE_BASE,
+} from "../lib/content";
+import { organizationSchema, websiteSchema } from "../lib/seo";
+
+const featured = await getFeaturedArticles(4);
+const latest = await getLatestArticles(9);
+const popular = await getPopularArticles(6);
+const hero = featured[0] ?? latest[0];
+const restFeatured = featured.filter((a) => a.id !== hero?.id);
+
+const topicChips = featuredCategories
+  .map((slug) => getCategory(slug))
+  .filter((c): c is NonNullable<typeof c> => Boolean(c));
+
+const showcaseSections = ["troubleshooting", "ai", "android", "buying-guides", "tips-tricks", "how-to-guides"];
+
+const sectionContent: Record<string, Awaited<ReturnType<typeof getArticlesByCategory>>> = {};
+for (const slug of showcaseSections) {
+  const byCat = await getArticlesByCategory(slug);
+  if (byCat.length > 0) sectionContent[slug] = byCat.slice(0, 3);
+}
+const visibleSections = showcaseSections.filter((slug) => (sectionContent[slug]?.length ?? 0) > 0);
+---
+
+<BaseLayout
+  title="Useful answers, guides & how-tos for everyday tech problems"
+  description={siteConfig.description}
+  jsonLd={[organizationSchema(), websiteSchema()]}
+>
+  <!-- Hero -->
+  <section class="hero" aria-label="Welcome">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero__eyebrow">Evergreen guides & everyday answers</p>
+          <h1>Clear answers to the tech problems you actually have.</h1>
+          <p class="hero__sub">
+            Step-by-step how-tos, troubleshooting guides, practical tips, and honest buying
+            advice — written to help you get things done, without the jargon.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn-primary" href={ARTICLE_BASE}>Browse all articles</a>
+            <a class="btn btn-secondary" href="/search">Search the site</a>
+          </div>
+        </div>
+        {hero && (
+          <a class="hero__spotlight" href={articleUrl(hero)}>
+            <article>
+              <span class="chip">Featured</span>
+              <h2>{hero.data.title}</h2>
+              <p>{hero.data.description}</p>
+              <span class="hero__spotlight-more">Read the guide →</span>
+            </article>
+          </a>
+        )}
+      </div>
+
+      <nav class="topic-strip" aria-label="Popular topics">
+        {topicChips.map((c) => (
+          <a class="chip chip--topic" href={`/articles/category/${c.slug}`}>{c.name}</a>
+        ))}
+        <a class="chip chip--topic chip--more" href="/categories">All topics</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  {
+    restFeatured.length > 0 && (
+      <section class="section" aria-labelledby="featured-title">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="featured-title">Featured guides</h2>
+            <a class="section-link" href={ARTICLE_BASE}>View all →</a>
+          </div>
+          <div class="grid grid-3">
+            {restFeatured.slice(0, 3).map((a) => <ArticleCard article={a} />)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Category showcase -->
+  {
+    visibleSections.length > 0 && (
+      <section class="section section--alt" aria-labelledby="category-title">
+        <div class="container">
+          <div class="section-head">
+            <h2 id="category-title">Explore by topic</h2>
+            <a class="section-link" href="/categories">All categories →</a>
+          </div>
+          <div class="showcase">
+            {
+              visibleSections.map((slug) => {
+                const cat = getCategory(slug);
+                return (
+                  <div class="showcase__col">
+                    <h3>
+                      <a href={`/articles/category/${slug}`}>{cat?.name}</a>
+                    </h3>
+                    <ul>
+                      {sectionContent[slug].map((a) => (
+                        <li>
+                          <a href={articleUrl(a)}>{a.data.title}</a>
+                          <span>{a.data.description}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Latest + popular -->
+  <section class="section" aria-labelledby="latest-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="latest-title">Latest articles</h2>
+        <a class="section-link" href={ARTICLE_BASE}>View all →</a>
+      </div>
+      <div class="latest-wrap">
+        <div class="grid grid-2 latest-grid">
+          {latest.map((a) => <ArticleCard article={a} />)}
+        </div>
+        <aside class="popular" aria-labelledby="popular-title">
+          <h2 id="popular-title">Most helpful</h2>
+          <ol class="popular__list">
+            {
+              popular.map((a, i) => (
+                <li>
+                  <a href={articleUrl(a)}>
+                    <span class="popular__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                    <span class="popular__body">
+                      <span class="popular__cat">
+                        {getCategory(a.data.category)?.name || a.data.category}
+                      </span>
+                      <span class="popular__title">{a.data.title}</span>
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA banner -->
+  <section class="section section--banner" aria-label="Get started">
+    <div class="container">
+      <div class="banner">
+        <div>
+          <h2>Looking for something specific?</h2>
+          <p>Try our fast search — articles, categories, and tags all in one place.</p>
+        </div>
+        <a class="btn btn-primary" href="/search">Search now</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(180deg, var(--accent-soft) 0%, var(--paper) 100%);
+    padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding-bottom: 2.25rem;
+  }
+
+  .hero__eyebrow {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-strong);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    margin-bottom: 1.1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero__sub {
+    color: var(--ink-soft);
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.65;
+    max-width: 46ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__spotlight {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .hero__spotlight:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px -12px rgba(33, 32, 28, 0.22);
+  }
+
+  .hero__spotlight .chip {
+    margin-bottom: 1rem;
+  }
+
+  .hero__spotlight h2 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-bottom: 0.65rem;
+    color: var(--ink);
+  }
+
+  .hero__spotlight p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .hero__spotlight-more {
+    font-weight: 700;
+    color: var(--accent-strong);
+    font-size: 0.95rem;
+  }
+
+  .topic-strip {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-block: 0.9rem 1.75rem;
+  }
+
+  .chip--topic {
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+  }
+
+  .chip--more {
+    color: var(--accent-strong);
+    border-style: dashed;
+  }
+
+  .section--alt {
+    background: var(--surface-2);
+  }
+
+  .showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  .showcase__col h3 {
+    font-size: 1.05rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 0.9rem;
+  }
+
+  .showcase__col h3 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .showcase__col h3 a:hover {
+    color: var(--accent-strong);
+  }
+
+  .showcase__col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .showcase__col li a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .showcase__col li a:hover {
+    color: var(--accent-strong);
+    text-decoration: underline;
+  }
+
+  .showcase__col li span {
+    display: block;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 0.2rem;
+  }
+
+  .latest-wrap {
+    display: grid;
+    grid-template-columns: 1.9fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .popular {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    background: var(--surface);
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .popular h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .popular__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+  }
+
+  .popular__list li {
+    border-top: 1px solid var(--line);
+  }
+
+  .popular__list li:first-child {
+    border-top: 0;
+  }
+
+  .popular__list a {
+    display: flex;
+    gap: 0.9rem;
+    padding: 0.8rem 0;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .popular__list a:hover .popular__title {
+    color: var(--accent-strong);
+    text-decoration: underline;
+  }
+
+  .popular__num {
+    font-weight: 800;
+    color: var(--line-strong);
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+
+  .popular__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .popular__cat {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-strong);
+  }
+
+  .popular__title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .section--banner {
+    padding-top: 0;
+  }
+
+  .banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: var(--ink);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    color: #fff;
+  }
+
+  .banner h2 {
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+
+  .banner p {
+    color: #b5b1a8;
+  }
+
+  @media (max-width: 980px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .latest-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .popular {
+      position: static;
+    }
+
+    .showcase {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .showcase {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

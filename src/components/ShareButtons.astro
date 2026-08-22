@@ -1,0 +1,91 @@
+---
+interface Props {
+  title: string;
+  url: string;
+}
+
+const { title, url } = Astro.props;
+const encoded = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+
+const platforms = [
+  {
+    name: "Facebook",
+    href: `https://www.facebook.com/sharer/sharer.php?u=${encoded}`,
+  },
+  {
+    name: "X (Twitter)",
+    href: `https://twitter.com/intent/tweet?url=${encoded}&text=${encodedTitle}`,
+  },
+  {
+    name: "LinkedIn",
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`,
+  },
+  {
+    name: "WhatsApp",
+    href: `https://api.whatsapp.com/send?text=${encodedTitle}%20${encoded}`,
+  },
+  {
+    name: "Email",
+    href: `mailto:?subject=${encodedTitle}&body=${encoded}`,
+  },
+];
+---
+
+<aside class="share no-print" aria-label="Share this article">
+  <span class="share__label">Share</span>
+  <div class="share__links">
+    {
+      platforms.map((p) => (
+        <a
+          class="share__link"
+          href={p.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Share on ${p.name}`}
+        >
+          {p.name}
+        </a>
+      ))
+    }
+  </div>
+</aside>
+
+<style>
+  .share {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .share__label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+  }
+
+  .share__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .share__link {
+    padding: 0.45rem 0.85rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .share__link:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+    background: var(--accent-soft);
+  }
+</style>

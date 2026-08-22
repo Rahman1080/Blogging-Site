@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import { siteConfig } from "../data/site";
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Disclaimer", url: "/disclaimer" },
+];
+
+const lastUpdated = "2026-08-22";
+---
+
+<BaseLayout
+  title="Disclaimer"
+  description="Disclaimers, affiliate disclosure, and editorial independence at {siteConfig.name}."
+>
+  <PageLayout title="Disclaimer" breadcrumbs={crumbs} updatedDate={lastUpdated}>
+    <p>Last updated: {lastUpdated}</p>
+
+    <p>
+      {siteConfig.name} is provided for general informational and educational purposes. We do our
+      best to keep content accurate and up to date, but technology changes quickly and we make no
+      warranties about completeness, accuracy, reliability, or suitability of any information on
+      this site.
+    </p>
+
+    <h2>No guarantees</h2>
+    <p>
+      The opinions expressed in articles are those of the authors and do not constitute
+      professional advice. Steps and instructions are provided in good faith, but results can vary
+      by device, software version, and configuration. Always create backups before making changes
+      to your devices or accounts.
+    </p>
+
+    <h2>Affiliate disclosure</h2>
+    <p>
+      Some articles and buying guides contain affiliate links. If you click an affiliate link and
+      make a purchase, we may earn a small commission from the retailer, at no additional cost to
+      you. This helps support the site. We only recommend products we genuinely believe may be
+      useful, and affiliate relationships never influence our editorial content. Affiliate content
+      is disclosed in the article itself.
+    </p>
+
+    <h2>Sponsored content</h2>
+    <p>
+      Occasionally we may publish sponsored content. Sponsored articles are clearly labelled as
+      “Sponsored”. Sponsored content is clearly distinguished from our editorial content.
+    </p>
+
+    <h2>Advertising</h2>
+    <p>
+      We may display advertising through third-party ad networks. Advertisers are responsible for
+      the accuracy and legality of their own ads.
+    </p>
+
+    <h2>AI-assisted content</h2>
+    <p>
+      We use AI tools to assist with drafting and research. All AI-assisted content is reviewed,
+      fact-checked, and edited by humans before publication. If you spot an error, please tell us
+      so we can fix it: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+    </p>
+
+    <h2>External websites</h2>
+    <p>
+      Links to external websites are provided for convenience. We are not responsible for the
+      content, products, or policies of external sites.
+    </p>
+
+    <h2>Errors and corrections</h2>
+    <p>
+      We are committed to correcting errors. If you find inaccurate information, contact us at{" "}
+      <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> and we will review and update
+      the article.
+    </p>
+  </PageLayout>
+</BaseLayout>

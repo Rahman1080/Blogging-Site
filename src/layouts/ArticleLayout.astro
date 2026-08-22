@@ -1,0 +1,401 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import TableOfContents from "../components/TableOfContents.astro";
+import ShareButtons from "../components/ShareButtons.astro";
+import RelatedArticles from "../components/RelatedArticles.astro";
+import AdSlot from "../components/AdSlot.astro";
+import { getCategory, formatDate } from "../data/site";
+import { articleUrl, ARTICLE_BASE } from "../lib/content";
+import { readingTime } from "../lib/utils";
+import {
+  articleSchema,
+  breadcrumbSchema,
+  faqSchema,
+  siteUrl,
+} from "../lib/seo";
+
+interface Props {
+  entry: CollectionEntry<"articles">;
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { entry, headings } = Astro.props;
+const data = entry.data;
+const category = getCategory(data.category);
+const url = articleUrl(entry);
+const absUrl = siteUrl(url);
+const minutes = readingTime(entry.body);
+const updated = data.updatedDate ? new Date(data.updatedDate) : undefined;
+const image = data.featuredImage;
+const imageSrc = image?.src?.startsWith("http") || image?.src?.startsWith("/") ? image.src : "";
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Articles", url: ARTICLE_BASE },
+  ...(category ? [{ name: category.name, url: `/articles/category/${category.slug}` }] : []),
+  { name: data.title, url },
+];
+
+const jsonLd = [
+  articleSchema(entry),
+  breadcrumbSchema(crumbs),
+  ...(data.faq.length > 0 ? [faqSchema(data.faq)] : []),
+];
+
+const pageTitle = data.seo?.title || data.title;
+const pageDescription = data.seo?.description || data.description;
+const canonical = data.seo?.canonicalURL || absUrl;
+const ogImage = imageSrc ? siteUrl(imageSrc) : undefined;
+const noindex = data.seo?.noindex || false;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={canonical}
+  ogType="article"
+  ogImage={ogImage}
+  publishedTime={new Date(data.pubDate).toISOString()}
+  modifiedTime={(updated || new Date(data.pubDate)).toISOString()}
+  noindex={noindex}
+  jsonLd={jsonLd}
+>
+  <section class="article">
+    <div class="container article-inner">
+      <Breadcrumbs items={crumbs} />
+
+
+    <header class="article-header">
+      {category && (
+        <a class="chip" href={`/articles/category/${category.slug}`}>{category.name}</a>
+      )}
+      <h1>{data.title}</h1>
+      <p class="article-lead">{data.description}</p>
+
+      <div class="article-meta">
+        <span class="meta-author">
+          <span class="meta-author__initials" aria-hidden="true">
+            {data.author.slice(0, 2).toUpperCase()}
+          </span>
+          {data.author}
+        </span>
+        <span class="meta-dot" aria-hidden="true">·</span>
+        <time datetime={new Date(data.pubDate).toISOString()}>{formatDate(data.pubDate)}</time>
+        {updated && (
+          <>
+            <span class="meta-dot" aria-hidden="true">·</span>
+            <span class="badge badge-updated">Updated {formatDate(updated)}</span>
+          </>
+        )}
+        <span class="meta-dot" aria-hidden="true">·</span>
+        <span>{minutes} min read</span>
+      </div>
+
+      {(data.sponsored || data.affiliate) && (
+        <p class="article-disclosure">
+          {data.sponsored ? "Sponsored" : ""}
+          {data.sponsored && data.affiliate ? " · " : ""}
+          {data.affiliate ? "This article contains affiliate links — we may earn a small commission at no extra cost to you." : ""}
+        </p>
+      )}
+    </header>
+
+    {imageSrc && (
+      <figure class="article-hero">
+        <img
+          src={imageSrc}
+          alt={image?.alt || data.title}
+          width="1200"
+          height="675"
+          fetchpriority="high"
+          decoding="async"
+        />
+        {(image?.caption || image?.credit) && (
+          <figcaption>
+            {image?.caption}
+            {image?.caption && image?.credit ? " — " : ""}
+            {image?.credit && <span class="credit">Credit: {image.credit}</span>}
+          </figcaption>
+        )}
+      </figure>
+    )}
+
+    <div class="article-layout">
+      <div class="toc-mobile no-print">
+        {headings.length >= 2 && (
+          <details class="toc-collapse">
+            <summary>On this page</summary>
+            <TableOfContents headings={headings} />
+          </details>
+        )}
+      </div>
+
+      <article class="article-main">
+        <div class="article-content">
+          <slot name="content" />
+        </div>
+
+        {data.faq.length > 0 && (
+          <section class="faq-section" aria-labelledby="faq-title">
+            <h2 id="faq-title">Frequently asked questions</h2>
+            <div class="faq-list">
+              {data.faq.map((f) => (
+                <div class="faq-item">
+                  <details>
+                    <summary>{f.question}</summary>
+                    <div class="faq-answer">{f.answer}</div>
+                  </details>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {data.sources.length > 0 && (
+          <section class="sources" aria-labelledby="sources-title">
+            <h2 id="sources-title">Sources & references</h2>
+            <ol>
+              {data.sources.map((s) => (
+                <li>
+                  <a href={s} target="_blank" rel="noopener noreferrer nofollow">{s}</a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        <div class="article-tags">
+          {data.tags.map((tag) => (
+            <a class="tag-pill" href={`/articles/tag/${tag.toLowerCase()}`}>#{tag}</a>
+          ))}
+        </div>
+
+        <AdSlot format="inline" />
+        <ShareButtons title={data.title} url={absUrl} />
+      </article>
+
+      <aside class="article-side no-print">
+        <div class="side-sticky">
+          <TableOfContents headings={headings} />
+          <ShareButtons title={data.title} url={absUrl} />
+        </div>
+      </aside>
+    </div>
+
+    <RelatedArticles article={entry} />
+  </div>
+</section>
+</BaseLayout>
+
+<style>
+  .article {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .article-header {
+    max-width: 42rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .article-header .chip {
+    margin-bottom: 1rem;
+  }
+
+  .article-header h1 {
+    margin-bottom: 0.9rem;
+  }
+
+  .article-lead {
+    font-size: clamp(1.08rem, 2.2vw, 1.22rem);
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+  }
+
+  .meta-author {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  .meta-author__initials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-weight: 800;
+    font-size: 0.8rem;
+  }
+
+  .meta-dot {
+    color: var(--line-strong);
+  }
+
+  .article-disclosure {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: var(--notice);
+    background: var(--notice-bg);
+    padding: 0.6rem 0.9rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .article-hero {
+    margin-block: 1.5rem 2rem;
+  }
+
+  .article-hero img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+
+  .article-hero figcaption {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-top: 0.6rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .credit {
+    color: var(--ink-muted);
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 3rem;
+  }
+
+  .article-main {
+    min-width: 0;
+  }
+
+  .article-side .side-sticky {
+    position: sticky;
+    top: 5.5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .toc-mobile {
+    display: none;
+  }
+
+  .faq-section {
+    margin-top: 2.5rem;
+  }
+
+  .faq-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .sources {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .sources h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .sources ol {
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .sources a {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    word-break: break-all;
+  }
+
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2.2rem;
+  }
+
+  .tag-pill {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+
+  .tag-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+  }
+
+  .toc-collapse {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--surface);
+  }
+
+  .toc-collapse summary {
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  .toc-collapse .toc {
+    margin-top: 0.75rem;
+    border: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 980px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .article-side {
+      display: none;
+    }
+
+    .toc-mobile {
+      display: block;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .article-hero {
+      margin-inline: -1rem;
+    }
+
+    .article-hero img {
+      border-radius: 0;
+    }
+  }
+</style>

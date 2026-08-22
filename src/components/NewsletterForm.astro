@@ -1,0 +1,144 @@
+---
+import { siteConfig } from "../data/site";
+
+const enabled = siteConfig.newsletter.enabled;
+---
+
+{
+  enabled && (
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <h2 id="newsletter-title">{siteConfig.newsletter.title}</h2>
+          <p>{siteConfig.newsletter.blurb}</p>
+        </div>
+        <form class="newsletter-form" data-newsletter-form novalidate>
+          <label class="visually-hidden" for="newsletter-email">Email address</label>
+          <div class="newsletter-row">
+            <input
+              id="newsletter-email"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </div>
+          <p class="newsletter-status" data-newsletter-status role="status" aria-live="polite"></p>
+          <p class="newsletter-privacy">
+            One useful email a week. Unsubscribe anytime. We never sell your data.
+          </p>
+        </form>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .newsletter {
+    padding-top: 2.75rem;
+  }
+
+  .newsletter-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 2rem;
+    align-items: center;
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .newsletter-text h2 {
+    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    margin-bottom: 0.5rem;
+    color: var(--accent-strong);
+  }
+
+  .newsletter-text p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .newsletter-row {
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  .newsletter-row input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.7rem 0.95rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+  }
+
+  .newsletter-row input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+
+  .newsletter-status {
+    margin-top: 0.55rem;
+    font-size: 0.88rem;
+    min-height: 1.2em;
+  }
+
+  .newsletter-status.success {
+    color: var(--accent-strong);
+    font-weight: 600;
+  }
+
+  .newsletter-status.error {
+    color: #9a2a1d;
+  }
+
+  .newsletter-privacy {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 760px) {
+    .newsletter-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .newsletter-row {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-newsletter-form]");
+  const status = document.querySelector<HTMLParagraphElement>("[data-newsletter-status]");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const input = form.querySelector<HTMLInputElement>("input[type='email']");
+    const email = input?.value.trim() || "";
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (status) {
+        status.textContent = "Please enter a valid email address.";
+        status.className = "newsletter-status error";
+      }
+      return;
+    }
+
+    // Demo-only: connect a newsletter provider (Mailchimp, Buttondown, etc.)
+    // here in a production build. The form never blocks the page.
+    if (status) {
+      status.textContent = "Thanks! Subscription is coming soon.";
+      status.className = "newsletter-status success";
+    }
+    form.reset();
+  });
+</script>

@@ -1,0 +1,106 @@
+---
+import ArticleCard from "./ArticleCard.astro";
+import Pagination from "./Pagination.astro";
+import type { Article } from "../lib/content";
+import { categories } from "../data/site";
+
+interface Props {
+  articles: Article[];
+  current: number;
+  totalPages: number;
+  basePath: string;
+  heading?: string;
+  activeCategory?: string;
+}
+
+const { articles, current, totalPages, basePath, heading = "All articles", activeCategory } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isArticlesIndex = currentPath === basePath || /\/page\/\d+\/$/.test(currentPath);
+---
+
+<section class="articles-page">
+  <div class="container">
+    <header class="list-head">
+      <h1>{heading}</h1>
+      <p>Every guide, how-to, and answer on {Astro.url.host || "this site"} — newest first.</p>
+    </header>
+
+    <nav class="filter-bar" aria-label="Filter by category">
+      <a
+        class={`filter-chip ${isArticlesIndex && !activeCategory ? "active" : ""}`}
+        href={basePath}
+      >
+        All
+      </a>
+      {categories.map((c) => (
+        <a
+          class={`filter-chip ${activeCategory === c.slug ? "active" : ""}`}
+          href={`/articles/category/${c.slug}`}
+        >
+          {c.name}
+        </a>
+      ))}
+    </nav>
+
+    <div class="grid grid-3 articles-grid">
+      {articles.map((a) => <ArticleCard article={a} />)}
+    </div>
+
+    <Pagination current={current} totalPages={totalPages} basePath={basePath} />
+  </div>
+</section>
+
+<style>
+  .articles-page {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .list-head {
+    margin-bottom: 1.5rem;
+  }
+
+  .list-head h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .list-head p {
+    color: var(--ink-soft);
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 1rem 0 1.5rem;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .filter-chip {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    background: var(--surface);
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .filter-chip:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+  }
+
+  .filter-chip.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .articles-grid {
+    margin-top: 1.5rem;
+  }
+</style>

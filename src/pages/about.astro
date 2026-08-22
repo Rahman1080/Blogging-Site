@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "About", url: "/about" },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="What Deli Daily Updates World is about — our editorial standards, what we cover, and who it's for."
+>
+  <PageLayout title="About this site" breadcrumbs={crumbs}>
+    <p>
+      <strong>Deli Daily Updates World</strong> is an evergreen information and blogging platform.
+      We publish practical guides, clear tutorials, troubleshooting fixes, useful tips, and honest
+      buying advice for the everyday technology problems people actually run into.
+    </p>
+
+    <h2>What we're not</h2>
+    <p>
+      We are not a breaking-news site and we do not chase headlines. Our articles are written to
+      stay useful for months and years, not hours. Instead of hundreds of rushed posts, we focus
+      on fewer, genuinely helpful ones that we keep up to date.
+    </p>
+
+    <h2>What we cover</h2>
+    <p>
+      Our topics include technology, AI, Android and iPhone, Windows and Mac, laptops and
+      computers, apps and software, the internet, gadgets, how-to guides, tutorials,
+      troubleshooting, tips and tricks, life hacks, productivity, online tools, cybersecurity
+      awareness, blogging and SEO, and buying guides. New topics are added as readers need them.
+    </p>
+
+    <h2>Our editorial standards</h2>
+    <ul>
+      <li><strong>Clear and correct:</strong> instructions are step-by-step and tested wherever possible.</li>
+      <li><strong>Honest:</strong> affiliate links and sponsored content are always disclosed.</li>
+      <li><strong>Accessible:</strong> articles are written in plain language, without unnecessary jargon.</li>
+      <li><strong>Up to date:</strong> we review and update evergreen articles so they stay accurate.</li>
+    </ul>
+
+    <h2>AI-assisted drafting</h2>
+    <p>
+      We use AI to help draft and research articles. Every article is reviewed, fact-checked, and
+      edited by a human before it is published. We never publish AI output automatically.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions, corrections, or collaboration ideas? See our <a href="/contact">contact page</a>
+      or read the <a href="/privacy-policy">privacy policy</a>, <a href="/terms">terms of use</a>,
+      and <a href="/disclaimer">disclaimer</a>.
+    </p>
+  </PageLayout>
+</BaseLayout>

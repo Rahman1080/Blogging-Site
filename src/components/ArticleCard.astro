@@ -1,0 +1,102 @@
+---
+import type { Article } from "../lib/content";
+import { articleUrl } from "../lib/content";
+import { getCategory, formatDate } from "../data/site";
+
+interface Props {
+  article: Article;
+  /** large = featured-style card, compact = list item. */
+  variant?: "default" | "large" | "compact";
+  showImage?: boolean;
+}
+
+const { article, variant = "default", showImage = true } = Astro.props;
+const data = article.data;
+const category = getCategory(data.category);
+const url = articleUrl(article);
+const isCompact = variant === "compact";
+const image = data.featuredImage;
+const imageSrc = image?.src?.startsWith("http") || image?.src?.startsWith("/")
+  ? image.src
+  : "";
+---
+
+<article class={`card card--${variant}`}>
+  {showImage && imageSrc && (
+    <a class="card__image" href={url} tabindex="-1" aria-hidden="true">
+      <img
+        src={imageSrc}
+        alt={image?.alt || data.title}
+        loading="lazy"
+        decoding="async"
+        width="1200"
+        height="675"
+      />
+    </a>
+  )}
+  {showImage && !imageSrc && (
+    <a class="card__image card__image--placeholder" href={url} tabindex="-1" aria-hidden="true">
+      <span>{category?.name || "Article"}</span>
+    </a>
+  )}
+  <div class="card__body">
+    {category && (
+      <div class="card__meta">
+        <a class="chip" href={`/articles/category/${category.slug}`}>{category.name}</a>
+        {data.sponsored && <span class="badge badge-sponsored">Sponsored</span>}
+      </div>
+    )}
+    <h3 class={`card__title ${isCompact ? "card__title--compact" : ""}`}>
+      <a href={url}>{data.title}</a>
+    </h3>
+    {!isCompact && <p class="card__desc">{data.description}</p>}
+    <div class="card__meta">
+      <span>{formatDate(data.pubDate)}</span>
+      <span aria-hidden="true">·</span>
+      <span>{data.author}</span>
+    </div>
+    {data.tags.length > 0 && (
+      <div class="card__tags">
+        {data.tags.slice(0, 3).map((tag) => (
+          <a class="tag-chip" href={`/articles/tag/${tag.toLowerCase()}`}>{tag}</a>
+        ))}
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  .card__title--compact {
+    font-size: 1rem;
+  }
+
+  .card__image--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-soft), var(--surface-2));
+  }
+
+  .card__image--placeholder span {
+    font-family: var(--font-ui);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-strong);
+    font-size: 0.95rem;
+  }
+
+  .tag-chip {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+  }
+
+  .tag-chip:hover {
+    color: var(--accent-strong);
+    border-color: var(--accent);
+  }
+</style>

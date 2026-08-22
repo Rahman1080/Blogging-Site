@@ -1,0 +1,77 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const visible = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  visible.length >= 2 && (
+    <nav class="toc no-print" aria-label="Table of contents">
+      <p class="toc__title">On this page</p>
+      <ol>
+        {visible.map((h) => {
+          const cls = `toc__item toc__item--${h.depth}`;
+          const href = `#${h.slug}`;
+          return (
+            <li class={cls}>
+              <a href={href}>{h.text}</a>
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  )
+}
+
+<style>
+  .toc {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.15rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+  }
+
+  .toc__title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    margin-bottom: 0.65rem;
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .toc__item a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .toc__item a:hover {
+    color: var(--accent-strong);
+    text-decoration: underline;
+  }
+
+  .toc__item--3 {
+    padding-left: 1rem;
+  }
+</style>

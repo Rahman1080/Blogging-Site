@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticlesList from "@/components/ArticlesList.astro";
+import { categories, siteConfig } from "@/data/site";
+import { getAllArticles } from "@/lib/content";
+
+export async function getStaticPaths() {
+  const pageSize = siteConfig.pagination.pageSize;
+  const allArticles = await getAllArticles();
+  const paths = [];
+  for (const c of categories) {
+    const inCategory = allArticles.filter((a) => a.data.category === c.slug);
+    const totalPages = Math.max(1, Math.ceil(inCategory.length / pageSize));
+    for (let p = 2; p <= totalPages; p++) {
+      paths.push({
+        params: { category: c.slug, page: String(p) },
+        props: { category: c, page: p, totalPages },
+      });
+    }
+  }
+  return paths;
+}
+
+const { category, page, totalPages } = Astro.props;
+const pageSize = siteConfig.pagination.pageSize;
+const allArticles = await getAllArticles();
+const inCategory = allArticles.filter((a) => a.data.category === category.slug);
+const articles = inCategory.slice((page - 1) * pageSize, page * pageSize);
+---
+
+<BaseLayout
+  title={`${category.name} — Page ${page}`}
+  description={`${category.description} Page ${page} of ${totalPages}.`}
+>
+  <ArticlesList
+    articles={articles}
+    current={page}
+    totalPages={totalPages}
+    basePath={`/articles/category/${category.slug}`}
+    heading={category.name}
+    activeCategory={category.slug}
+  />
+</BaseLayout>

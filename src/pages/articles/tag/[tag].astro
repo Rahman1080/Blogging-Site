@@ -1,0 +1,73 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticleCard from "@/components/ArticleCard.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { getArticlesByTag, getAllTags } from "@/lib/content";
+
+export async function getStaticPaths() {
+  const tags = await getAllTags();
+  return tags.map(({ tag }) => ({
+    params: { tag },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props;
+const articles = await getArticlesByTag(tag);
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Tags", url: "/search" },
+  { name: tag, url: `/articles/tag/${tag}` },
+];
+---
+
+<BaseLayout
+  title={`Articles tagged “${tag}”`}
+  description={`All articles tagged with ${tag}.`}
+>
+  <section class="tag-page">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <header class="tag-head">
+        <h1>
+          <span class="tag-hash" aria-hidden="true">#</span>{tag}
+        </h1>
+        <p>{articles.length} article{articles.length === 1 ? "" : "s"}</p>
+      </header>
+      {
+        articles.length > 0 ? (
+          <div class="grid grid-3">
+            {articles.map((a) => <ArticleCard article={a} />)}
+          </div>
+        ) : (
+          <p class="text-muted">No published articles with this tag yet.</p>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tag-page {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .tag-head {
+    margin-bottom: 1.75rem;
+  }
+
+  .tag-head h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .tag-hash {
+    color: var(--accent-strong);
+  }
+
+  .tag-head p {
+    color: var(--ink-soft);
+  }
+</style>

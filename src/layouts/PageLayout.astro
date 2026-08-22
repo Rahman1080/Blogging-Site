@@ -1,0 +1,114 @@
+---
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  breadcrumbs: { name: string; url: string }[];
+  updatedDate?: string;
+}
+
+const { title, description, breadcrumbs, updatedDate } = Astro.props;
+---
+
+<section class="static-page">
+  <div class="container container-narrow">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="static-head">
+      <h1>{title}</h1>
+      {description && <p>{description}</p>}
+      {updatedDate && (
+        <p class="static-updated">
+          Last updated: <time datetime={updatedDate}>{updatedDate}</time>
+        </p>
+      )}
+    </header>
+    <div class="static-content">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .static-page {
+    padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .static-head h1 {
+    margin-bottom: 0.75rem;
+  }
+
+  .static-head > p:not(.static-updated) {
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+
+  .static-updated {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+
+  .static-content {
+    margin-top: 2rem;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+
+  .static-content h2 {
+    font-size: 1.3rem;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+  }
+
+  .static-content h3 {
+    font-size: 1.1rem;
+    margin-top: 1.6em;
+    margin-bottom: 0.5em;
+  }
+
+  .static-content p {
+    margin-bottom: 1em;
+  }
+
+  .static-content ul,
+  .static-content ol {
+    margin: 0 0 1em;
+    padding-left: 1.4rem;
+  }
+
+  .static-content li {
+    margin-bottom: 0.4em;
+  }
+
+  .static-content a {
+    color: var(--link);
+  }
+
+  .static-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 1rem;
+    margin: 1.2em 0;
+    color: var(--ink-soft);
+  }
+
+  .static-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    font-size: 0.95rem;
+  }
+
+  .static-content th,
+  .static-content td {
+    border: 1px solid var(--line);
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+  }
+
+  .static-content th {
+    background: var(--surface-2);
+  }
+</style>

@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import { siteConfig } from "../data/site";
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Privacy Policy", url: "/privacy-policy" },
+];
+
+const lastUpdated = "2026-08-22";
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="How {siteConfig.name} handles data, cookies, analytics, and your privacy."
+>
+  <PageLayout title="Privacy Policy" breadcrumbs={crumbs} updatedDate={lastUpdated}>
+    <p>Last updated: {lastUpdated}</p>
+
+    <p>
+      This privacy policy explains what information is collected when you visit
+      {siteConfig.name} (“we”, “us”), how it is used, and the choices you have. This is a static
+      website, so we collect remarkably little data by design.
+    </p>
+
+    <h2>Information we collect</h2>
+    <ul>
+      <li>
+        <strong>Cookies and analytics:</strong> if analytics is enabled, we may use tools such as
+        Google Analytics to understand aggregate traffic (pages visited, approximate location,
+        device type). This is anonymous and aggregated.
+      </li>
+      <li>
+        <strong>Contact messages:</strong> if you email us via our contact page, your email app
+        sends us whatever you include. We use it only to reply.
+      </li>
+      <li>
+        <strong>Newsletter:</strong> if a newsletter is active, we collect the email address you
+        submit through the sign-up form, used only for sending the newsletter.
+      </li>
+      <li>
+        <strong>Logs:</strong> our hosting provider (for example Hostinger) records standard server
+        logs (IP address, browser, requested page) as part of normal operation.
+      </li>
+    </ul>
+
+    <h2>How we use information</h2>
+    <p>We use collected information to:</p>
+    <ul>
+      <li>Understand which content is most useful and improve the site;</li>
+      <li>Reply to messages and send requested newsletters;</li>
+      <li>Keep the site secure and operational.</li>
+    </ul>
+
+    <h2>Advertising and third-party services</h2>
+    <p>
+      We may display advertising or use third-party services (analytics, ad networks, email
+      providers). These providers may use cookies or similar technologies. Advertising partners
+      such as Google may use cookies to serve ads based on your prior visits. You can opt out of
+      personalized advertising via{" "}
+      <a href="https://adssettings.google.com/" rel="noopener nofollow" target="_blank">
+        Google Ads Settings
+      </a>.
+    </p>
+
+    <h2>Cookies</h2>
+    <p>
+      Cookies are small files stored on your device. The site itself sets no essential cookies.
+      Third-party services (analytics, ads) may set their own cookies. You can disable cookies in
+      your browser at any time; the site will continue to work.
+    </p>
+
+    <h2>Data sharing</h2>
+    <p>
+      We do not sell your personal information. We only share data with service providers that
+      help operate the site (hosting, analytics, email) and only to the extent needed.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>
+      Depending on where you live (e.g. GDPR in Europe, CCPA in California), you may have rights to
+      access, correct, or delete your data, and to object to or restrict processing. To exercise
+      these rights, contact us at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+    </p>
+
+    <h2>External links</h2>
+    <p>
+      Our articles may link to external websites. We are not responsible for their privacy
+      practices. Please review their policies when you visit them.
+    </p>
+
+    <h2>Children's privacy</h2>
+    <p>
+      This site is intended for general audiences and is not directed at children under 13. We do
+      not knowingly collect personal information from children.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this policy from time to time. The “last updated” date above shows when it was
+      last changed. Continued use of the site after changes constitutes acceptance of the revised
+      policy.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+    </p>
+  </PageLayout>
+</BaseLayout>

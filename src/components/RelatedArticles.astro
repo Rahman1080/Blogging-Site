@@ -1,0 +1,107 @@
+---
+import type { Article } from "../lib/content";
+import { getRelatedArticles, articleUrl } from "../lib/content";
+import { getCategory, formatDate } from "../data/site";
+
+interface Props {
+  article: Article;
+  limit?: number;
+}
+
+const { article, limit = 3 } = Astro.props;
+const related = await getRelatedArticles(article, limit);
+---
+
+{
+  related.length > 0 && (
+    <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">Related articles</h2>
+      <div class="related__grid">
+        {
+          related.map((item) => {
+            const cat = getCategory(item.data.category);
+            return (
+              <article class="related__card">
+                <a class="related__cat" href={`/articles/category/${item.data.category}`}>
+                  {cat?.name || item.data.category}
+                </a>
+                <h3 class="related__title">
+                  <a href={articleUrl(item)}>{item.data.title}</a>
+                </h3>
+                <p class="related__meta">{formatDate(item.data.pubDate)}</p>
+              </article>
+            );
+          })
+        }
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .related {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .related h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .related__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .related__card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 1.1rem 1.15rem;
+    background: var(--surface);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .related__card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .related__cat {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-strong);
+    text-decoration: none;
+  }
+
+  .related__title {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-top: 0.45rem;
+  }
+
+  .related__title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .related__title a:hover {
+    color: var(--accent-strong);
+  }
+
+  .related__meta {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 760px) {
+    .related__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

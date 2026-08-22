@@ -1,0 +1,74 @@
+---
+import { breadcrumbSchema } from "../lib/seo";
+
+interface Crumb {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {items.map((item, i) => {
+      const isLast = i === items.length - 1;
+      return (
+        <li>
+          {!isLast ? (
+            <>
+              <a href={item.url}>{item.name}</a>
+              <span class="sep" aria-hidden="true">/</span>
+            </>
+          ) : (
+            <span aria-current="page">{item.name}</span>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(items))} />
+
+<style>
+  .breadcrumbs {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.45rem;
+    align-items: center;
+  }
+
+  .breadcrumbs a {
+    color: var(--ink-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--accent-strong);
+    text-decoration: underline;
+  }
+
+  .breadcrumbs [aria-current="page"] {
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  .sep {
+    color: var(--line-strong);
+    margin-inline: 0.1rem;
+  }
+</style>

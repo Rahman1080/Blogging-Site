@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticlesList from "@/components/ArticlesList.astro";
+import { getAllArticles } from "@/lib/content";
+import { siteConfig } from "@/data/site";
+
+const pageSize = siteConfig.pagination.pageSize;
+const allArticles = await getAllArticles();
+const totalPages = Math.max(1, Math.ceil(allArticles.length / pageSize));
+const articles = allArticles.slice(0, pageSize);
+---
+
+<BaseLayout
+  title="Articles"
+  description="Browse all evergreen guides, tutorials, troubleshooting fixes, tips, and buying advice."
+  jsonLd={[{ "@context": "https://schema.org", "@type": "CollectionPage", name: "Articles" }]}
+>
+  <ArticlesList
+    articles={articles}
+    current={1}
+    totalPages={totalPages}
+    basePath="/articles"
+    heading="All articles"
+  />
+</BaseLayout>
