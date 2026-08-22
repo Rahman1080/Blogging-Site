@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ArticleCard from "../components/ArticleCard.astro";
-import { featuredCategories, siteConfig, getCategory } from "../data/site";
+import { featuredCategories, getCategory } from "../data/site";
 import {
   getFeaturedArticles,
   getLatestArticles,
@@ -10,7 +10,7 @@ import {
   articleUrl,
   ARTICLE_BASE,
 } from "../lib/content";
-import { organizationSchema, websiteSchema } from "../lib/seo";
+import { organizationSchema, websiteSchema, siteUrl } from "../lib/seo";
 
 const featured = await getFeaturedArticles(4);
 const latest = await getLatestArticles(9);
@@ -33,8 +33,10 @@ const visibleSections = showcaseSections.filter((slug) => (sectionContent[slug]?
 ---
 
 <BaseLayout
-  title="Useful answers, guides & how-tos for everyday tech problems"
-  description={siteConfig.description}
+  title="Everyday Tech Answers, Guides & How-Tos"
+  description="Fix a slow phone, speed up your PC, stay safe online, and understand AI — clear, practical guides for everyday technology problems."
+  ogImage={siteUrl("/og-default.png")}
+  ogImageAlt="Info 24/7 — practical guides and answers for everyday tech problems"
   jsonLd={[organizationSchema(), websiteSchema()]}
 >
   <!-- Hero -->

@@ -4,8 +4,9 @@ description: "Slow Windows 11 PC? Work through these proven fixes — restart, s
 author: "Info 24/7 Editorial Team"
 pubDate: 2026-02-10
 updatedDate: 2026-08-10
+lastReviewed: 2026-08-22
 category: "windows"
-tags: ["windows", "performance", "troubleshooting", "pc", "startup"]
+tags: ["windows", "performance", "troubleshooting", "pc", "startup", "tips"]
 type: "troubleshooting"
 draft: false
 featured: true
@@ -16,6 +17,20 @@ featuredImage:
 seo:
   title: "Windows 11 Running Slow? 12 Fixes That Work"
   description: "Is your Windows 11 PC lagging? Restart, clean startup apps, free up disk space, and apply these practical fixes to speed it up."
+  primaryKeyword: "how to speed up Windows 11"
+  keywords: ["Windows 11 slow", "PC running slow", "speed up PC", "Windows 11 performance", "slow computer fix"]
+  longTail:
+    - "why is my windows 11 pc so slow"
+    - "will adding more ram speed up my pc"
+    - "is an ssd worth it for an old pc"
+    - "how to know if i should buy a new pc"
+  relatedQuestions:
+    - "Why is my Windows 11 PC so slow?"
+    - "Will adding more RAM speed up my PC?"
+    - "Is an SSD worth it for an old PC?"
+    - "Do I need a 'PC cleaner' app?"
+    - "How do I know if I should just buy a new PC?"
+  entities: ["Windows 11", "Task Manager", "SSD", "RAM"]
 related:
   - "android-phone-running-slow"
   - "how-to-choose-a-laptop-buying-guide"

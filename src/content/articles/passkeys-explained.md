@@ -3,8 +3,9 @@ title: "Passkeys Explained: How to Ditch Passwords for Good"
 description: "Passkeys are the password-free login system backed by Apple, Google, and Microsoft. Here's what they are, whether they're actually safe, and how to start using them today."
 author: "Info 24/7 Editorial Team"
 pubDate: 2026-08-22
+lastReviewed: 2026-08-22
 category: "cybersecurity"
-tags: ["security", "passwords", "authentication", "how-to"]
+tags: ["security", "passwords", "passkeys", "authentication", "how-to"]
 type: "tutorial"
 draft: false
 featured: false
@@ -14,8 +15,21 @@ featuredImage:
   caption: "Passkeys replace passwords with your phone and its built-in security."
   credit: "Photo via Wikimedia Commons (CC0)"
 seo:
-  title: "Passkeys Explained + How to Start Using Them (iPhone & Android)"
-  description: "No more passwords to leak, forget, or reuse. What passkeys are, why they're safer than passwords, and exactly how to set them up on iPhone, Android, and your browser."
+  title: "Passkeys Explained + How to Start Using Them"
+  description: "No more passwords to leak, forget, or reuse. What passkeys are, why they're safer, and how to set them up on iPhone, Android, and your browser."
+  primaryKeyword: "what are passkeys"
+  keywords: ["passkeys vs passwords", "set up passkeys", "passwordless login", "passkey authentication", "how do passkeys work"]
+  longTail:
+    - "how to use passkeys on iphone"
+    - "are passkeys safe"
+    - "passkey vs password"
+    - "what happens if i lose my phone with passkeys"
+  relatedQuestions:
+    - "Are passkeys safer than passwords?"
+    - "What happens if I lose my phone?"
+    - "Do passkeys mean I don't need a password manager anymore?"
+    - "Can I use passkeys on both iPhone and Android?"
+  entities: ["Apple", "Google", "Microsoft", "FIDO Alliance", "iCloud Keychain", "Google Password Manager"]
 related:
   - "password-manager-guide"
 faq:
@@ -53,7 +67,7 @@ The security gains aren't marketing hype, and they're worth understanding becaus
 
 **No shared secret to steal.** With a password, the website holds a copy of your secret, and so does any service that leaks your data. With a passkey, there's nothing on the server that can be used to log in as you — even a full database breach gives attackers nothing useful.
 
-**Phishing-proof by design.** A passkey is bound to the specific domain it was created for. Log into a convincing fake version of your bank's website and the passkey simply won't work there. That single property removes the most common way accounts get compromised.
+**Phishing-proof by design.** A passkey is bound to the specific domain it was created for. Log into a convincing fake version of your bank's website and the passkey simply won't work there. That single property removes the most common way accounts get compromised — which is also why passkeys are one of the strongest defenses against [AI-powered scams](/articles/ai-scams-deepfake-calls) that clone voices and faces.
 
 **Nothing to reuse.** You can't reuse a passkey, and you can't fall for "please enter your current password" tricks, because there's no password to enter.
 

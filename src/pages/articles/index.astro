@@ -3,17 +3,26 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ArticlesList from "@/components/ArticlesList.astro";
 import { getAllArticles } from "@/lib/content";
 import { siteConfig } from "@/data/site";
+import { breadcrumbSchema } from "@/lib/seo";
 
 const pageSize = siteConfig.pagination.pageSize;
 const allArticles = await getAllArticles();
 const totalPages = Math.max(1, Math.ceil(allArticles.length / pageSize));
 const articles = allArticles.slice(0, pageSize);
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Articles", url: "/articles" },
+];
 ---
 
 <BaseLayout
-  title="Articles"
-  description="Browse all evergreen guides, tutorials, troubleshooting fixes, tips, and buying advice."
-  jsonLd={[{ "@context": "https://schema.org", "@type": "CollectionPage", name: "Articles" }]}
+  title="All Guides, How-Tos & Answers"
+  description="Every practical tech guide on Info 24/7 — troubleshooting fixes, tutorials, tips, and honest buying advice, newest first."
+  jsonLd={[
+    breadcrumbSchema(crumbs),
+    { "@context": "https://schema.org", "@type": "CollectionPage", name: "All articles", url: "https://dailyupdatesworld.com/articles" },
+  ]}
 >
   <ArticlesList
     articles={articles}
@@ -21,5 +30,6 @@ const articles = allArticles.slice(0, pageSize);
     totalPages={totalPages}
     basePath="/articles"
     heading="All articles"
+    intro="Every guide, how-to, and answer on the site — fixes you can apply today, ordered newest first."
   />
 </BaseLayout>

@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ArticlesList from "@/components/ArticlesList.astro";
-import { categories, siteConfig } from "@/data/site";
+import { categories } from "@/data/site";
 import { getAllArticles } from "@/lib/content";
-import { breadcrumbSchema } from "@/lib/seo";
+import { breadcrumbSchema, siteUrl } from "@/lib/seo";
 
 export async function getStaticPaths() {
   return categories.map((c) => ({
@@ -13,11 +13,12 @@ export async function getStaticPaths() {
 }
 
 const { category } = Astro.props;
-const pageSize = siteConfig.pagination.pageSize;
+const pageSize = 12;
 const allArticles = await getAllArticles();
 const inCategory = allArticles.filter((a) => a.data.category === category.slug);
 const totalPages = Math.max(1, Math.ceil(inCategory.length / pageSize));
 const articles = inCategory.slice(0, pageSize);
+const isEmpty = inCategory.length === 0;
 
 const crumbs = [
   { name: "Home", url: "/" },
@@ -25,19 +26,27 @@ const crumbs = [
   { name: category.name, url: `/articles/category/${category.slug}` },
 ];
 
-const description = `${category.description} ${totalPages > 0 ? `${inCategory.length} article${inCategory.length === 1 ? "" : "s"}.` : ""}`;
+const pageTitle = category.seoTitle || `${category.name} — Articles`;
+const pageDescription = isEmpty
+  ? `${category.description} We're writing helpful ${category.name.toLowerCase()} guides — check back soon.`
+  : `${category.seoDescription || category.description} ${inCategory.length} in-depth guide${inCategory.length === 1 ? "" : "s"}, newest first.`;
+const ogImage = siteUrl(`/images/covers/${category.slug}.png`);
 ---
 
 <BaseLayout
-  title={`${category.name} — Articles`}
-  description={description}
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={ogImage}
+  ogImageAlt={`${category.name} guides on Info 24/7`}
+  noindex={isEmpty}
   jsonLd={[
     breadcrumbSchema(crumbs),
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: `${category.name} articles`,
-      description: category.description,
+      name: pageTitle,
+      description: pageDescription,
+      url: siteUrl(`/articles/category/${category.slug}`),
     },
   ]}
 >
@@ -48,5 +57,10 @@ const description = `${category.description} ${totalPages > 0 ? `${inCategory.le
     basePath={`/articles/category/${category.slug}`}
     heading={category.name}
     activeCategory={category.slug}
+    emptyMessage={
+      isEmpty
+        ? "No guides in this category yet — we're working on it. Try another topic above, or use the search."
+        : undefined
+    }
   />
 </BaseLayout>

@@ -77,19 +77,76 @@ export async function getRelatedArticles(
 ): Promise<Article[]> {
   const all = await getAllArticles();
   const others = all.filter((a) => entrySlug(a) !== entrySlug(article));
+  const currentTokens = keywordTokens(article);
 
-  const explicit = others.filter((a) => article.data.related.includes(entrySlug(a)));
+  const scored = others
+    .map((candidate) => ({
+      article: candidate,
+      score: relatedScore(article, candidate, currentTokens),
+    }))
+    .sort((a, b) => b.score - a.score || +new Date(b.article.data.pubDate) - +new Date(a.article.data.pubDate));
 
-  const sameCategory = others
-    .filter((a) => a.data.category === article.data.category)
-    .filter((a) => !explicit.includes(a))
-    .slice(0, limit - explicit.length);
+  return scored.slice(0, limit).map((s) => s.article);
+}
 
-  const rest = others
-    .filter((a) => !explicit.includes(a) && !sameCategory.includes(a))
-    .slice(0, Math.max(0, limit - explicit.length - sameCategory.length));
+const STOPWORDS = new Set([
+  "the", "a", "an", "and", "or", "but", "for", "with", "your", "you", "how", "what",
+  "why", "when", "to", "of", "in", "on", "at", "by", "is", "are", "it", "this", "that",
+  "make", "can", "do", "get", "from", "up", "out", "over", "not", "if", "as", "no", "will",
+]);
 
-  return [...explicit, ...sameCategory, ...rest].slice(0, limit);
+function tokens(text: string): string[] {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .split(/[\s-]+/)
+    .filter((t) => t.length > 2 && !STOPWORDS.has(t));
+}
+
+function keywordTokens(entry: Article): Set<string> {
+  const data = entry.data;
+  const src = [
+    data.title,
+    data.description,
+    ...data.tags,
+    data.seo?.primaryKeyword || "",
+    ...(data.seo?.keywords || []),
+    ...(data.seo?.entities || []),
+    ...(data.seo?.longTail || []),
+  ].join(" ");
+  return new Set(tokens(src));
+}
+
+/**
+ * Relevance score between two articles, based on shared tags, category,
+ * explicit related slugs, and keyword/entity/topic overlap. Not keyword
+ * stuffing — just topic affinity.
+ */
+function relatedScore(a: Article, b: Article, aTokens: Set<string>): number {
+  let score = 0;
+
+  if (a.data.related.includes(entrySlug(b))) score += 100;
+
+  if (a.data.category === b.data.category) score += 40;
+
+  const aTags = new Set(a.data.tags.map((t) => t.toLowerCase()));
+  const bTags = new Set(b.data.tags.map((t) => t.toLowerCase()));
+  for (const t of bTags) if (aTags.has(t)) score += 15;
+
+  const bTokens = keywordTokens(b);
+  let overlap = 0;
+  for (const t of bTokens) if (aTokens.has(t)) overlap++;
+  score += Math.min(overlap, 10) * 2;
+
+  const catBoost =
+    b.data.seo?.primaryKeyword &&
+    a.data.seo?.primaryKeyword &&
+    b.data.seo.primaryKeyword === a.data.seo.primaryKeyword
+      ? 8
+      : 0;
+  score += catBoost;
+
+  return score;
 }
 
 export function articleUrl(entry: Article): string {

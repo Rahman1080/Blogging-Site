@@ -3,8 +3,9 @@ title: "Wi-Fi Keeps Dropping or Is Slow? 12 Fixes That Work"
 description: "Fix slow, dropping, or unreliable Wi-Fi at home. Work through these 12 practical fixes — restart, channel, placement, updates, and more — in order."
 author: "Info 24/7 Editorial Team"
 pubDate: 2026-06-08
+lastReviewed: 2026-08-22
 category: "internet"
-tags: ["wifi", "internet", "router", "troubleshooting"]
+tags: ["wifi", "internet", "router", "troubleshooting", "performance"]
 type: "troubleshooting"
 draft: false
 featured: false
@@ -13,8 +14,22 @@ featuredImage:
   alt: "A white Wi-Fi router, representing how to fix Wi-Fi problems"
   credit: "Photo: Solijon Solayev, Wikimedia Commons (CC BY-SA 4.0)"
 seo:
-  title: "Wi-Fi Slow or Dropping? 12 Fixes (In Order, Most Likely First)"
+  title: "Wi-Fi Slow or Dropping? 12 Fixes That Work"
   description: "Fix flaky home Wi-Fi: restart the router, change the channel, move it, update firmware, check interference, and more — ordered by what works most often."
+  primaryKeyword: "why is my Wi-Fi not working"
+  keywords: ["Wi-Fi keeps dropping", "Wi-Fi slow fix", "Wi-Fi not connecting", "improve home Wi-Fi", "router troubleshooting"]
+  longTail:
+    - "why does my wifi keep dropping but my internet is fine"
+    - "how do i know which wifi channel to use"
+    - "does unplugging my router actually help"
+    - "should i use a wifi extender or a mesh system"
+  relatedQuestions:
+    - "Why does my Wi-Fi keep dropping but my internet is fine?"
+    - "How do I know which Wi-Fi channel to use?"
+    - "Does unplugging my router actually help?"
+    - "Is my router too old?"
+    - "Should I use a Wi-Fi extender?"
+  entities: ["Wi-Fi 6", "router", "mesh network"]
 related:
   - "speed-up-windows-11-pc"
   - "backup-iphone-guide"
@@ -132,4 +147,4 @@ A reset clears all custom settings back to defaults — you'll need to set up yo
 
 Restart → reposition → change the channel → update firmware. That sequence resolves the large majority of home Wi-Fi problems without spending a cent. If your internet is genuinely fast on a wired connection and the router is newer, focus on placement and channel.
 
-While your network is stable, it's a great moment to run the [speed-up Windows 11 guide](/articles/speed-up-windows-11-pc) for your computer and back up your phone with our [iPhone backup guide](/articles/backup-iphone-guide).
+While your network is stable, it's a great moment to run the [speed-up Windows 11 guide](/articles/speed-up-windows-11-pc) for your computer and back up your phone with our [iPhone backup guide](/articles/backup-iphone-guide). And if your connectivity problems follow you on the road, [eSIMs](/articles/esim-explained) are the travel-friendly fix for mobile data.

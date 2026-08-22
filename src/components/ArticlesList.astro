@@ -11,18 +11,30 @@ interface Props {
   basePath: string;
   heading?: string;
   activeCategory?: string;
+  intro?: string;
+  emptyMessage?: string;
 }
 
-const { articles, current, totalPages, basePath, heading = "All articles", activeCategory } = Astro.props;
+const {
+  articles,
+  current,
+  totalPages,
+  basePath,
+  heading = "All articles",
+  activeCategory,
+  intro,
+  emptyMessage,
+} = Astro.props;
 const currentPath = Astro.url.pathname;
 const isArticlesIndex = currentPath === basePath || /\/page\/\d+\/$/.test(currentPath);
+const empty = articles.length === 0;
 ---
 
 <section class="articles-page">
   <div class="container">
     <header class="list-head">
       <h1>{heading}</h1>
-      <p>Every guide, how-to, and answer on {Astro.url.host || "this site"} — newest first.</p>
+      {intro && <p>{intro}</p>}
     </header>
 
     <nav class="filter-bar" aria-label="Filter by category">
@@ -42,11 +54,15 @@ const isArticlesIndex = currentPath === basePath || /\/page\/\d+\/$/.test(curren
       ))}
     </nav>
 
-    <div class="grid grid-3 articles-grid">
-      {articles.map((a) => <ArticleCard article={a} />)}
-    </div>
+    {empty ? (
+      <p class="empty-note">{emptyMessage || "No articles here yet."}</p>
+    ) : (
+      <div class="grid grid-3 articles-grid">
+        {articles.map((a) => <ArticleCard article={a} />)}
+      </div>
+    )}
 
-    <Pagination current={current} totalPages={totalPages} basePath={basePath} />
+    {!empty && <Pagination current={current} totalPages={totalPages} basePath={basePath} />}
   </div>
 </section>
 
@@ -65,6 +81,13 @@ const isArticlesIndex = currentPath === basePath || /\/page\/\d+\/$/.test(curren
 
   .list-head p {
     color: var(--ink-soft);
+    max-width: 60ch;
+    line-height: 1.6;
+  }
+
+  .empty-note {
+    color: var(--ink-soft);
+    padding: 2rem 0;
   }
 
   .filter-bar {

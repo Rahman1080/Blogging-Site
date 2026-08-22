@@ -9,6 +9,8 @@ const articles = defineCollection({
     author: z.string().default("Info 24/7 Editorial Team"),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
+    /** When a human last verified the facts in the article. Displayed as trust signal. */
+    lastReviewed: z.coerce.date().optional(),
     /** Must be one of the slugs in src/data/site.ts → categories. */
     category: z.string(),
     tags: z.array(z.string()).default([]),
@@ -40,6 +42,16 @@ const articles = defineCollection({
         /** Custom canonical URL (rarely needed). */
         canonicalURL: z.string().optional(),
         noindex: z.boolean().optional(),
+        /** The one main phrase this article targets. */
+        primaryKeyword: z.string().optional(),
+        /** Secondary keywords / topic variations. */
+        keywords: z.array(z.string()).default([]),
+        /** Long-tail queries the article genuinely answers. */
+        longTail: z.array(z.string()).default([]),
+        /** Questions people ask that this article answers. */
+        relatedQuestions: z.array(z.string()).default([]),
+        /** Named entities covered (products, platforms, concepts) for structured data. */
+        entities: z.array(z.string()).default([]),
       })
       .optional(),
     featuredImage: z

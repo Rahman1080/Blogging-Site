@@ -17,7 +17,7 @@ export const authors: Author[] = [
   {
     slug: "info-24-7-editorial-team",
     name: "Info 24/7 Editorial Team",
-    bio: "The Info 24/7 editorial team researches, tests, and writes practical evergreen guides on everyday technology — from fixing a slow phone to understanding AI. Every article is drafted, humanized, fact-checked, and reviewed before it is published. We do not chase daily news; we publish guides that stay useful for years.",
+    bio: "The Info 24/7 editorial team researches, tests, and writes practical evergreen tech guides — reviewed and fact-checked before publication.",
   },
 ];
 

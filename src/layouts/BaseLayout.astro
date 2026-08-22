@@ -13,7 +13,14 @@ interface Props {
   canonical?: string;
   /** Social share image (absolute URL). */
   ogImage?: string;
+  ogImageAlt?: string;
   ogType?: "website" | "article";
+  /** Comma-separated or array of meta keywords. Omitted if empty. */
+  keywords?: string[] | string;
+  /** OG article:tag values (rendered only when ogType is article). */
+  ogTags?: string[];
+  /** OG article:section value. */
+  ogSection?: string;
   publishedTime?: string;
   modifiedTime?: string;
   noindex?: boolean;
@@ -28,7 +35,11 @@ const {
   description = siteConfig.description,
   canonical,
   ogImage,
+  ogImageAlt,
   ogType = "website",
+  keywords,
+  ogTags = [],
+  ogSection,
   publishedTime,
   modifiedTime,
   noindex = false,
@@ -41,7 +52,9 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteConfig.url).hr
 const robots = noindex || siteConfig.build.noindex
   ? "noindex, nofollow"
   : "index, follow";
-const ogImageUrl = ogImage || siteUrl("/og-default.svg");
+const ogImageUrl = ogImage || siteUrl("/og-default.png");
+const metaKeywords = Array.isArray(keywords) ? keywords : keywords?.split(",").map((k) => k.trim()).filter(Boolean);
+const ogPageTitle = title || siteConfig.name;
 
 const { gaId, gtmId, siteVerification } = siteConfig.analytics;
 const ldJson = jsonLd.map((o) => JSON.stringify(o));
@@ -54,6 +67,9 @@ const ldJson = jsonLd.map((o) => JSON.stringify(o));
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={escapeHtml(description)} />
+    {metaKeywords && metaKeywords.length > 0 && (
+      <meta name="keywords" content={escapeHtml([...new Set(metaKeywords)].join(", "))} />
+    )}
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonicalUrl} />
 
@@ -66,19 +82,23 @@ const ldJson = jsonLd.map((o) => JSON.stringify(o));
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteConfig.name} />
-    <meta property="og:title" content={escapeHtml(title || siteConfig.name)} />
+    <meta property="og:title" content={escapeHtml(ogPageTitle)} />
     <meta property="og:description" content={escapeHtml(description)} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={escapeHtml(ogImageAlt || ogPageTitle)} />
     <meta property="og:locale" content={siteConfig.locale} />
     {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {ogTags.map((t) => <meta property="article:tag" content={escapeHtml(t)} />)}
+    {ogSection && <meta property="article:section" content={escapeHtml(ogSection)} />}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={escapeHtml(title || siteConfig.name)} />
+    <meta name="twitter:title" content={escapeHtml(ogPageTitle)} />
     <meta name="twitter:description" content={escapeHtml(description)} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={escapeHtml(ogImageAlt || ogPageTitle)} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />

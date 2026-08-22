@@ -1,9 +1,16 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import { contentIdeas, getIdeaCount } from "@/data/content-ideas";
+import { contentIdeas, getIdeaCount, opportunityLabel } from "@/data/content-ideas";
 
 const crumbs = [{ name: "Home", url: "/" }, { name: "Content Ideas", url: "/content-ideas" }];
+const STRENGTH_LABEL = { high: "High", medium: "Medium", low: "Low" } as const;
+const strengthClass = (s: string) => `idea-signal__strength idea-signal__strength--${s}`;
+const scoreClass = (s: number) => {
+  if (s >= 70) return "idea-score idea-score--strong";
+  if (s >= 50) return "idea-score idea-score--moderate";
+  return "idea-score idea-score--exploratory";
+};
 ---
 
 <BaseLayout
@@ -36,12 +43,44 @@ const crumbs = [{ name: "Home", url: "/" }, { name: "Content Ideas", url: "/cont
                   <h3>{idea.topic}</h3>
                   <span class="idea-card__cat">{idea.category}</span>
                 </div>
-                {idea.status === "published" && idea.article && (
-                  <p class="idea-card__published">
-                    Published: <a href={`/articles/${idea.article}`}>/articles/{idea.article}</a>
+                <div class="idea-card__topline">
+                  <span class={scoreClass(idea.score)} title="Honest opportunity estimate, not a promise">
+                    {idea.score} <small>/{opportunityLabel(idea.score)}</small>
+                  </span>
+                  {idea.status === "published" && idea.article && (
+                    <span class="idea-card__published">
+                      <a href={`/articles/${idea.article}`}>Published</a>
+                    </span>
+                  )}
+                </div>
+                <p class="idea-card__why">{idea.why}</p>
+                {idea.searchQuestions?.length ? (
+                  <div class="idea-card__block">
+                    <h4>Search questions</h4>
+                    <ul class="idea-card__list">
+                      {idea.searchQuestions.map((q) => <li>{q}</li>)}
+                    </ul>
+                  </div>
+                ) : null}
+                {idea.gap && (
+                  <p class="idea-card__gap">
+                    <strong>Gap:</strong> {idea.gap}
                   </p>
                 )}
-                <p class="idea-card__why">{idea.why}</p>
+                {idea.signals?.length ? (
+                  <div class="idea-card__block">
+                    <h4>Signals</h4>
+                    <ul class="idea-card__signals">
+                      {idea.signals.map((s) => (
+                        <li>
+                          <span class={strengthClass(s.strength)}>{STRENGTH_LABEL[s.strength]}</span>
+                          <strong>{s.label}</strong>
+                          <span>{s.note}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
                 {idea.intent && (
                   <p class="idea-card__meta">
                     <strong>Intent:</strong> {idea.intent}
@@ -120,9 +159,141 @@ const crumbs = [{ name: "Home", url: "/" }, { name: "Content Ideas", url: "/cont
     margin-bottom: 0.5rem;
   }
 
+  .idea-card__topline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .idea-score {
+    font-size: 0.82rem;
+    font-weight: 800;
+    border-radius: 999px;
+    padding: 0.18rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  .idea-score small {
+    font-weight: 600;
+    font-size: 0.7rem;
+    opacity: 0.85;
+  }
+
+  .idea-score--strong {
+    color: var(--good-ink, #1a7f37);
+    background: var(--good-soft, #dcfce7);
+  }
+
+  .idea-score--moderate {
+    color: #9a6700;
+    background: #fff8c5;
+  }
+
+  .idea-score--exploratory {
+    color: var(--ink-muted);
+    background: var(--surface-2, #f0f0f1);
+  }
+
+  .idea-card__published {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--good-ink, #1a7f37);
+    background: var(--good-soft, #dcfce7);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  .idea-card__published a {
+    color: inherit;
+  }
+
   .idea-card h3 {
     font-size: 1.02rem;
     line-height: 1.35;
+  }
+
+  .idea-card__block {
+    margin-bottom: 0.6rem;
+  }
+
+  .idea-card__block h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    margin: 0 0 0.3rem;
+  }
+
+  .idea-card__list {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.87rem;
+    color: var(--ink-soft);
+  }
+
+  .idea-card__list li {
+    margin-bottom: 0.15rem;
+  }
+
+  .idea-card__gap {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent-strong);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 0.45rem 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .idea-card__gap strong {
+    color: var(--ink);
+  }
+
+  .idea-card__signals {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .idea-card__signals li {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .idea-card__signals li strong {
+    color: var(--ink-soft);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .idea-signal__strength {
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.08rem 0.45rem;
+    flex: none;
+  }
+
+  .idea-signal__strength--high {
+    color: var(--good-ink, #1a7f37);
+    background: var(--good-soft, #dcfce7);
+  }
+
+  .idea-signal__strength--medium {
+    color: #9a6700;
+    background: #fff8c5;
+  }
+
+  .idea-signal__strength--low {
+    color: var(--ink-muted);
+    background: var(--surface-2, #f0f0f1);
   }
 
   .idea-card__cat {
@@ -135,17 +306,6 @@ const crumbs = [{ name: "Home", url: "/" }, { name: "Content Ideas", url: "/cont
     padding: 0.15rem 0.5rem;
     border-radius: 999px;
     white-space: nowrap;
-  }
-
-  .idea-card__published {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--good-ink, #1a7f37);
-    background: var(--good-soft, #dcfce7);
-    border-radius: 999px;
-    display: inline-block;
-    padding: 0.15rem 0.6rem;
-    margin-bottom: 0.6rem;
   }
 
   .idea-card__why {

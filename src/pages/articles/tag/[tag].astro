@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ArticleCard from "@/components/ArticleCard.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { getArticlesByTag, getAllTags } from "@/lib/content";
+import { getTagInfo } from "@/data/tags";
 
 export async function getStaticPaths() {
   const tags = await getAllTags();
@@ -14,25 +15,32 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.props;
 const articles = await getArticlesByTag(tag);
+const info = getTagInfo(tag);
+const isThin = articles.length < 2;
+const existingTags = new Set((await getAllTags()).map((t) => t.tag));
+const relatedTags = (info?.related || []).filter((rt) => existingTags.has(rt));
 const crumbs = [
   { name: "Home", url: "/" },
   { name: "Tags", url: "/search" },
-  { name: tag, url: `/articles/tag/${tag}` },
+  { name: info?.name || tag, url: `/articles/tag/${tag}` },
 ];
 ---
 
 <BaseLayout
-  title={`Articles tagged “${tag}”`}
-  description={`All articles tagged with ${tag}.`}
+  title={`${info?.name || tag} — Guides & Articles`}
+  description={info?.description || `All articles tagged with ${tag}.`}
+  noindex={isThin}
+  keywords={info ? [info.name, ...(info.related || [])] : [tag]}
 >
   <section class="tag-page">
     <div class="container">
       <Breadcrumbs items={crumbs} />
       <header class="tag-head">
         <h1>
-          <span class="tag-hash" aria-hidden="true">#</span>{tag}
+          <span class="tag-hash" aria-hidden="true">#</span>{info?.name || tag}
         </h1>
-        <p>{articles.length} article{articles.length === 1 ? "" : "s"}</p>
+        <p class="tag-count">{articles.length} article{articles.length === 1 ? "" : "s"}</p>
+        {info?.description && <p class="tag-desc">{info.description}</p>}
       </header>
       {
         articles.length > 0 ? (
@@ -43,6 +51,17 @@ const crumbs = [
           <p class="text-muted">No published articles with this tag yet.</p>
         )
       }
+      {relatedTags.length > 0 && (
+        <nav class="related-tags" aria-label="Related topics">
+          <span class="related-tags__label">Related:</span>
+          {relatedTags.map((rt) => {
+            const rInfo = getTagInfo(rt);
+            return rInfo ? (
+              <a class="tag-pill" href={`/articles/tag/${rInfo.key}`}>{rInfo.name}</a>
+            ) : null;
+          })}
+        </nav>
+      )}
     </div>
   </section>
 </BaseLayout>
@@ -67,7 +86,48 @@ const crumbs = [
     color: var(--accent-strong);
   }
 
-  .tag-head p {
+  .tag-count {
     color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tag-desc {
+    color: var(--ink-soft);
+    max-width: 60ch;
+    line-height: 1.6;
+  }
+
+  .related-tags {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .related-tags__label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin-right: 0.25rem;
+  }
+
+  .tag-pill {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+
+  .tag-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
   }
 </style>

@@ -3,6 +3,7 @@ title: "AI Scam Calls and Deepfakes: How to Spot Them and Protect Yourself"
 description: "Scammers now clone voices, faces, and messages with AI. Learn how these scams actually work and the practical steps that keep your money and identity safe."
 author: "Info 24/7 Editorial Team"
 pubDate: 2026-08-22
+lastReviewed: 2026-08-22
 category: "cybersecurity"
 tags: ["security", "ai", "scams", "privacy", "deepfake"]
 type: "how-to"
@@ -14,8 +15,21 @@ featuredImage:
   caption: "AI can now clone a familiar voice from just a few seconds of audio."
   credit: "Photo via Wikimedia Commons (CC BY-SA 4.0)"
 seo:
-  title: "AI Scam Calls & Deepfakes: How to Spot Them + Protection Checklist"
-  description: "Voice cloning and deepfakes are fueling a new wave of scams. Learn the warning signs, the verification steps that block them, and what to do if you've been targeted."
+  title: "AI Scam Calls & Deepfakes: How to Spot Them + Stay Safe"
+  description: "Voice cloning and deepfakes are fueling a new wave of scams. Learn the warning signs, the verification steps that block them, and what to do if targeted."
+  primaryKeyword: "AI scam calls"
+  keywords: ["voice cloning scam", "deepfake scam", "AI voice scams", "grandparent scam", "deepfake protection"]
+  longTail:
+    - "how to know if a phone call is AI"
+    - "can scammers clone my voice"
+    - "what to do if you get scammed"
+    - "how to spot ai voice calls"
+  relatedQuestions:
+    - "How do scammers clone someone's voice?"
+    - "Can I trust my eyes and ears with deepfakes?"
+    - "What should I do if I think a call is AI-generated?"
+    - "I sent money in a scam. Is it gone?"
+  entities: ["FTC", "voice cloning", "deepfake", "AI scams"]
 related:
   - "password-manager-guide"
   - "what-is-ai-explained"
@@ -73,7 +87,7 @@ You don't need to become an expert in spotting deepfakes. You need **one habit**
 Stronger account security doesn't stop a scam call, but it stops the damage if a scammer gets your details:
 
 - Turn on **two-factor authentication** on your email and bank accounts, preferably with an authenticator app rather than SMS.
-- Use a **password manager** so a breach on one site doesn't unlock the rest. Our [password manager guide](/articles/password-manager-guide) covers this.
+- Use a **password manager** so a breach on one site doesn't unlock the rest. Our [password manager guide](/articles/password-manager-guide) covers this, and [passkeys](/articles/passkeys-explained) remove the password-phishing risk entirely.
 - Set your social media to **private** and be careful what you post. Voice samples, birthday details, and photos with family are gold to scammers building a fake call.
 
 ## If it happened to you

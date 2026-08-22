@@ -1,5 +1,5 @@
 import type { Article } from "./content";
-import { siteConfig } from "../data/site";
+import { siteConfig, getCategory } from "../data/site";
 import { articleUrl } from "./content";
 import { authorUrlFor } from "../data/authors";
 
@@ -41,6 +41,12 @@ export function articleSchema(entry: Article) {
   const url = siteUrl(articleUrl(entry));
   const data = entry.data;
   const authorName = data.author || siteConfig.author.name;
+  const keywords = [
+    data.seo?.primaryKeyword,
+    ...(data.seo?.keywords || []),
+    ...data.tags,
+  ].filter(Boolean) as string[];
+  const category = getCategory(data.category);
 
   return {
     "@context": "https://schema.org",
@@ -69,6 +75,16 @@ export function articleSchema(entry: Article) {
       "@type": "WebPage",
       "@id": url,
     },
+    ...(keywords.length > 0 ? { keywords: keywords.join(", ") } : {}),
+    ...(data.seo?.entities && data.seo.entities.length > 0
+      ? {
+          about: data.seo.entities.map((entity) => ({
+            "@type": "Thing",
+            name: entity,
+          })),
+        }
+      : {}),
+    ...(category ? { articleSection: category.name } : {}),
   };
 }
 

@@ -3,8 +3,9 @@ title: "How to Free Up Storage Space on Your Phone"
 description: "Phone storage full? Clear photos, videos, cache, and downloads to free up space fast — on both Android and iPhone — with these step-by-step methods."
 author: "Info 24/7 Editorial Team"
 pubDate: 2026-05-06
+lastReviewed: 2026-08-22
 category: "mobile"
-tags: ["storage", "tips", "android", "iphone", "how-to"]
+tags: ["storage", "tips", "android", "iphone", "how-to", "troubleshooting"]
 type: "how-to"
 draft: false
 featured: false
@@ -15,6 +16,19 @@ featuredImage:
 seo:
   title: "How to Free Up Storage on Your Phone (Android & iPhone)"
   description: "Storage full? Reclaim gigabytes in minutes — clear cached data, offload photos and videos, clean WhatsApp and downloads, and more for Android and iPhone."
+  primaryKeyword: "how to free up storage on your phone"
+  keywords: ["phone storage full", "free up space Android", "free up space iPhone", "clear phone cache", "how to delete photos to save space"]
+  longTail:
+    - "how much free storage should i keep on my phone"
+    - "will deleting photos free up space automatically"
+    - "why is other storage taking so much space"
+    - "should i use a phone cleaner app"
+  relatedQuestions:
+    - "How much free storage should I keep on my phone?"
+    - "Will deleting photos free up space automatically?"
+    - "Why is 'Other' / 'System Data' taking so much space?"
+    - "Should I use a 'phone cleaner' app to free space?"
+  entities: ["Android", "iPhone", "WhatsApp", "iCloud"]
 related:
   - "android-phone-running-slow"
   - "extend-android-battery-life"
@@ -58,6 +72,8 @@ The biggest space hogs are usually videos. Moving them off-device reclaims space
 - **Google Photos** (Android): enable **Backup & sync**, then use **Free up space** in the app — it removes on-device copies of backed-up photos and videos.
 - **iCloud Photos** (iPhone): **Settings → Photos → Optimize iPhone Storage** keeps smaller versions on the phone.
 - Third-party options: one of the major cloud drives with automatic camera upload.
+
+> Tip: Before deleting photos from your iPhone, make sure they're actually backed up. Our [iPhone backup guide](/articles/backup-iphone-guide) shows how to keep them safe in iCloud or on a computer first.
 
 > Tip: Review your video clips — they're often the single largest files on the phone. Back them up, then delete the originals.
 

@@ -7,7 +7,7 @@ import ShareButtons from "../components/ShareButtons.astro";
 import RelatedArticles from "../components/RelatedArticles.astro";
 import AdSlot from "../components/AdSlot.astro";
 import { getCategory, formatDate } from "../data/site";
-import { authorUrlFor } from "../data/authors";
+import { authorUrlFor, getAuthorByName } from "../data/authors";
 import { articleUrl, ARTICLE_BASE } from "../lib/content";
 import { readingTime } from "../lib/utils";
 import {
@@ -29,6 +29,8 @@ const url = articleUrl(entry);
 const absUrl = siteUrl(url);
 const minutes = readingTime(entry.body);
 const updated = data.updatedDate ? new Date(data.updatedDate) : undefined;
+const reviewed = data.lastReviewed ? new Date(data.lastReviewed) : undefined;
+const authorProfile = getAuthorByName(data.author);
 const image = data.featuredImage;
 const imageSrc = image?.src?.startsWith("http") || image?.src?.startsWith("/") ? image.src : "";
 
@@ -49,7 +51,15 @@ const pageTitle = data.seo?.title || data.title;
 const pageDescription = data.seo?.description || data.description;
 const canonical = data.seo?.canonicalURL || absUrl;
 const ogImage = imageSrc ? siteUrl(imageSrc) : undefined;
+const ogImageAlt = image?.alt || pageTitle;
+const metaKeywords = [
+  data.seo?.primaryKeyword,
+  ...(data.seo?.keywords || []),
+  ...data.tags,
+].filter((k): k is string => Boolean(k));
 const noindex = data.seo?.noindex || false;
+const modifiedTime = (updated || new Date(data.pubDate)).toISOString();
+const publishedTime = new Date(data.pubDate).toISOString();
 ---
 
 <BaseLayout
@@ -58,8 +68,12 @@ const noindex = data.seo?.noindex || false;
   canonical={canonical}
   ogType="article"
   ogImage={ogImage}
-  publishedTime={new Date(data.pubDate).toISOString()}
-  modifiedTime={(updated || new Date(data.pubDate)).toISOString()}
+  ogImageAlt={ogImageAlt}
+  keywords={metaKeywords}
+  ogTags={data.tags}
+  ogSection={category?.name}
+  publishedTime={publishedTime}
+  modifiedTime={modifiedTime}
   noindex={noindex}
   jsonLd={jsonLd}
 >
@@ -88,6 +102,12 @@ const noindex = data.seo?.noindex || false;
           <>
             <span class="meta-dot" aria-hidden="true">·</span>
             <span class="badge badge-updated">Updated {formatDate(updated)}</span>
+          </>
+        )}
+        {reviewed && !updated && (
+          <>
+            <span class="meta-dot" aria-hidden="true">·</span>
+            <span class="badge badge-reviewed">Reviewed {formatDate(reviewed)}</span>
           </>
         )}
         <span class="meta-dot" aria-hidden="true">·</span>
@@ -173,14 +193,48 @@ const noindex = data.seo?.noindex || false;
           ))}
         </div>
 
+        {authorProfile && (
+          <aside class="author-box no-print" aria-label={`About ${authorProfile.name}`}>
+            <div class="author-box__avatar" aria-hidden="true">
+              {authorProfile.name.slice(0, 2).toUpperCase()}
+            </div>
+            <div class="author-box__body">
+              <p class="author-box__label">Written by</p>
+              <p class="author-box__name">
+                <a href={authorUrlFor(authorProfile.name)} rel="author">{authorProfile.name}</a>
+              </p>
+              <p class="author-box__bio">{authorProfile.bio}</p>
+              <p class="author-box__meta">
+                Published {formatDate(data.pubDate)}
+                {updated ? ` · Updated ${formatDate(updated)}` : ""}
+                {reviewed ? ` · Fact-checked ${formatDate(reviewed)}` : ""}
+                {data.sources.length > 0 ? ` · ${data.sources.length} source${data.sources.length === 1 ? "" : "s"}` : ""}
+              </p>
+            </div>
+          </aside>
+        )}
+
         <AdSlot format="inline" />
-        <ShareButtons title={data.title} url={absUrl} />
+        <ShareButtons
+          title={data.title}
+          description={pageDescription}
+          url={absUrl}
+          image={ogImage}
+          tags={data.tags}
+        />
       </article>
 
       <aside class="article-side no-print">
         <div class="side-sticky">
           <TableOfContents headings={headings} />
-          <ShareButtons title={data.title} url={absUrl} />
+          <ShareButtons
+            title={data.title}
+            description={pageDescription}
+            url={absUrl}
+            image={ogImage}
+            tags={data.tags}
+            compact
+          />
         </div>
       </aside>
     </div>
@@ -339,6 +393,72 @@ const noindex = data.seo?.noindex || false;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 2.2rem;
+  }
+
+  .badge-reviewed {
+    color: var(--good-ink, #1a7f37);
+    background: var(--good-soft, #dcfce7);
+  }
+
+  .author-box {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+  }
+
+  .author-box__avatar {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-weight: 800;
+    font-size: 1rem;
+  }
+
+  .author-box__label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .author-box__name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .author-box__name a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .author-box__name a:hover {
+    color: var(--accent-strong);
+    text-decoration: underline;
+  }
+
+  .author-box__bio {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 0.5rem;
+  }
+
+  .author-box__meta {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
   }
 
   .tag-pill {

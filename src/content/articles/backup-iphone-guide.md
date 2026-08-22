@@ -3,8 +3,9 @@ title: "How to Back Up Your iPhone (iCloud, Mac, and Windows)"
 description: "Never lose your photos, messages, and settings again. Learn how to back up an iPhone with iCloud, your Mac, or a Windows PC — and how to restore."
 author: "Info 24/7 Editorial Team"
 pubDate: 2026-05-22
+lastReviewed: 2026-08-22
 category: "iphone"
-tags: ["iphone", "backup", "icloud", "how-to"]
+tags: ["iphone", "backup", "icloud", "how-to", "storage"]
 type: "how-to"
 draft: false
 featured: false
@@ -13,8 +14,21 @@ featuredImage:
   alt: "An iPhone held in one hand, representing how to back up your iPhone"
   credit: "Photo via Unsplash"
 seo:
-  title: "How to Back Up Your iPhone: iCloud, Mac & Windows (Step by Step)"
+  title: "How to Back Up Your iPhone: iCloud, Mac or Windows"
   description: "Step-by-step iPhone backup guide — iCloud, Finder on Mac, or Windows PC. Plus how to restore and the difference between backup methods."
+  primaryKeyword: "how to back up your iPhone"
+  keywords: ["iPhone backup", "iCloud backup", "back up iPhone to Mac", "back up iPhone to Windows", "restore iPhone from backup"]
+  longTail:
+    - "how to back up iphone to computer"
+    - "does icloud backup include everything"
+    - "how often should i back up my iphone"
+    - "will backing up to my computer overwrite my icloud backup"
+  relatedQuestions:
+    - "Does iCloud backup include everything?"
+    - "How much does iCloud storage cost?"
+    - "How often should I back up my iPhone?"
+    - "Will backing up to my computer overwrite my iCloud backup?"
+  entities: ["Apple", "iCloud", "Finder", "iTunes", "iPhone"]
 related:
   - "free-up-storage-phone"
 faq:
