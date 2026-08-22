@@ -1,7 +1,7 @@
 ---
 title: "How to Start a Blog in 2026: A Complete Beginner's Guide"
 description: "Start a blog from scratch in 2026 — pick a niche and name, set up hosting and a domain, choose a platform, write your first posts, and get found on Google. Step-by-step, no fluff."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-03-14
 updatedDate: 2026-08-18
 category: "blogging-seo"
@@ -10,8 +10,9 @@ type: "tutorial"
 draft: false
 featured: false
 featuredImage:
-  src: "/images/covers/blogging-seo.png"
-  alt: "Teal cover illustration for a blogging starter guide"
+  src: "/images/covers/how-to-start-a-blog.jpg"
+  alt: "A notebook and laptop, representing how to start a blog"
+  credit: "Photo via Unsplash"
 seo:
   title: "How to Start a Blog in 2026 (Step-by-Step for Beginners)"
   description: "From picking a niche to publishing your first post and getting traffic — the honest, practical 10-step guide to starting a blog that lasts."

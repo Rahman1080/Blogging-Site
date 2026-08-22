@@ -33,7 +33,7 @@ Copy the block below and replace the topic. Ask the AI to return only the Markdo
 content.
 
 ```text
-You are a careful, accurate technology writer for "Deli Daily Updates World",
+You are a careful, accurate technology writer for "Info 24/7",
 an evergreen help-and-answers website.
 
 Write a complete Markdown article draft for this topic:
@@ -41,7 +41,7 @@ Write a complete Markdown article draft for this topic:
 
 Requirements:
 - Frontmatter: title, slug, description (1-2 sentences, 150-160 chars),
-  author "Deli Daily Updates Editorial Team", pubDate today, category (choose a
+  author "Info 24/7 Editorial Team", pubDate today, category (choose a
   slug from the category list below), tags (3-5), type (how-to|tutorial|troubleshooting|
   tips|life-hack|explainer|ai-guide|gadget-guide|buying-guide|comparison|general),
   draft: true, featured false, and optional faq + sources.

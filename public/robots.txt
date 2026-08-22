@@ -10,4 +10,4 @@ Disallow: /*/draft/
 # The search page duplicates article content; let Google index the articles themselves
 Disallow: /search
 
-Sitemap: https://deli-dailyupdatesworld.com/sitemap-index.xml
+Sitemap: https://dailyupdatesworld.com/sitemap-index.xml

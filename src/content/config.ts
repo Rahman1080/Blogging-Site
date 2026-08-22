@@ -6,7 +6,7 @@ const articles = defineCollection({
     title: z.string(),
     /** The entry id (filename or frontmatter "slug") is used as the URL slug. */
     description: z.string(),
-    author: z.string().default("Deli Daily Updates Editorial Team"),
+    author: z.string().default("Info 24/7 Editorial Team"),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     /** Must be one of the slugs in src/data/site.ts → categories. */

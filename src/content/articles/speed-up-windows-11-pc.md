@@ -1,7 +1,7 @@
 ---
 title: "How to Speed Up a Slow Windows 11 PC"
 description: "Slow Windows 11 PC? Work through these proven fixes — restart, startup apps, storage, updates, and more — to make your computer feel fast again without buying new hardware."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-02-10
 updatedDate: 2026-08-10
 category: "windows"
@@ -10,8 +10,9 @@ type: "troubleshooting"
 draft: false
 featured: true
 featuredImage:
-  src: "/images/covers/windows.png"
-  alt: "Blue cover illustration for a Windows speed guide"
+  src: "/images/covers/speed-up-windows-11-pc.jpg"
+  alt: "A laptop on a desk, representing how to speed up a Windows PC"
+  credit: "Photo via Unsplash"
 seo:
   title: "Windows 11 Running Slow? 12 Fixes That Work"
   description: "Is your Windows 11 PC lagging? Restart, clean startup apps, free up disk space, and apply these practical fixes to speed it up."

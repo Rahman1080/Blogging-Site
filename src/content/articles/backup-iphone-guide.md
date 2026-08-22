@@ -1,7 +1,7 @@
 ---
 title: "How to Back Up Your iPhone (iCloud, Mac, and Windows)"
 description: "Never lose your photos, messages, and settings again. Learn how to back up an iPhone with iCloud, your Mac, or a Windows PC — and how to restore."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-05-22
 category: "iphone"
 tags: ["iphone", "backup", "icloud", "how-to"]
@@ -9,8 +9,9 @@ type: "how-to"
 draft: false
 featured: false
 featuredImage:
-  src: "/images/covers/iphone.png"
-  alt: "Blue cover illustration for an iPhone backup guide"
+  src: "/images/covers/backup-iphone-guide.jpg"
+  alt: "An iPhone held in one hand, representing how to back up your iPhone"
+  credit: "Photo via Unsplash"
 seo:
   title: "How to Back Up Your iPhone: iCloud, Mac & Windows (Step by Step)"
   description: "Step-by-step iPhone backup guide — iCloud, Finder on Mac, or Windows PC. Plus how to restore and the difference between backup methods."

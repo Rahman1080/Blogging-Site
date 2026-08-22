@@ -36,7 +36,7 @@ Upload this folder's **contents** to your Hostinger `public_html/` directory.
 4. Set the site URL environment variable before building so links match your domain:
 
    ```bash
-   PUBLIC_SITE_URL=https://deli-dailyupdatesworld.com npm run build
+   PUBLIC_SITE_URL=https://dailyupdatesworld.com npm run build
    ```
 
    The default in `src/data/site.ts` is already the production URL, so this is optional.
@@ -54,7 +54,7 @@ Hostinger's hPanel supports deploying straight from a Git repository.
    ```
 
 4. Set the **Deployment path** to `public_html` and the **Application root** to `dist/`.
-5. Add the environment variable `PUBLIC_SITE_URL=https://deli-dailyupdatesworld.com`
+5. Add the environment variable `PUBLIC_SITE_URL=https://dailyupdatesworld.com`
    if Hostinger's Git app supports env vars; otherwise the default already matches.
 6. Deploy. Hostinger runs the build and serves `dist/` from your domain.
 
@@ -64,7 +64,7 @@ Copy `.env.example` to `.env` (never commit the real `.env`). All variables are 
 
 | Variable | Purpose | Default |
 | --- | --- | --- |
-| `PUBLIC_SITE_URL` | Canonical URL used in sitemap, RSS, canonical tags | `https://deli-dailyupdatesworld.com` |
+| `PUBLIC_SITE_URL` | Canonical URL used in sitemap, RSS, canonical tags | `https://dailyupdatesworld.com` |
 | `PUBLIC_GA_ID` | Google Analytics 4 measurement ID (`G-XXXXXXX`) | off |
 | `PUBLIC_GTM_ID` | Google Tag Manager container ID (`GTM-XXXX`) | off |
 | `PUBLIC_ADS_ENABLED` | Render ad placeholders (`true`/`false`) | off |
@@ -72,7 +72,7 @@ Copy `.env.example` to `.env` (never commit the real `.env`). All variables are 
 ## After deploying
 
 1. **Google Search Console** — verify domain ownership (DNS TXT or HTML file), then submit
-   `https://deli-dailyupdatesworld.com/sitemap-index.xml`.
+   `https://dailyupdatesworld.com/sitemap-index.xml`.
 2. **Bing Webmaster Tools** — submit the same sitemap if you want Bing coverage.
 3. Check `robots.txt` and `.htaccess` were uploaded (they are in `dist/`).
 4. Test the site: homepage, an article page, `/search`, a category page, and the 404 page.

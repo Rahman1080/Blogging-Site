@@ -1,7 +1,7 @@
 ---
 title: "Wi-Fi Keeps Dropping or Is Slow? 12 Fixes That Work"
 description: "Fix slow, dropping, or unreliable Wi-Fi at home. Work through these 12 practical fixes — restart, channel, placement, updates, and more — in order."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-06-08
 category: "internet"
 tags: ["wifi", "internet", "router", "troubleshooting"]
@@ -9,8 +9,9 @@ type: "troubleshooting"
 draft: false
 featured: false
 featuredImage:
-  src: "/images/covers/internet.png"
-  alt: "Teal cover illustration for a Wi-Fi troubleshooting guide"
+  src: "/images/covers/wifi-not-working-fixes.jpg"
+  alt: "A white Wi-Fi router, representing how to fix Wi-Fi problems"
+  credit: "Photo: Solijon Solayev, Wikimedia Commons (CC BY-SA 4.0)"
 seo:
   title: "Wi-Fi Slow or Dropping? 12 Fixes (In Order, Most Likely First)"
   description: "Fix flaky home Wi-Fi: restart the router, change the channel, move it, update firmware, check interference, and more — ordered by what works most often."

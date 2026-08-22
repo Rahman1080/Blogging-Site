@@ -57,7 +57,7 @@ function svgFor(cat, w, h) {
   <circle cx="88" cy="84" r="34" fill="#ffffff" opacity="0.96"/>
   <path d="M66 86l16 15 34-33" stroke="${cat.color}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <text x="88" y="${h - 90}" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="42" font-weight="bold" fill="#ffffff" opacity="0.98">${name}</text>
-  <text x="88" y="${h - 46}" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#ffffff" opacity="0.75">deli-dailyupdatesworld.com</text>
+  <text x="88" y="${h - 46}" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#ffffff" opacity="0.75">dailyupdatesworld.com</text>
 </svg>`;
 }
 

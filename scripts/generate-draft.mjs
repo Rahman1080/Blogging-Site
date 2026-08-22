@@ -57,7 +57,7 @@ if (existing.includes(slug)) {
 
 const now = new Date();
 const today = now.toISOString().slice(0, 10);
-const author = flags.author || "Deli Daily Updates Editorial Team";
+const author = flags.author || "Info 24/7 Editorial Team";
 const category = flags.category || "general-information";
 const tags = (flags.tags || "")
   .split(",")

@@ -1,7 +1,7 @@
 ---
 title: "How to Free Up Storage Space on Your Phone"
 description: "Phone storage full? Clear photos, videos, cache, and downloads to free up space fast — on both Android and iPhone — with these step-by-step methods."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-05-06
 category: "mobile"
 tags: ["storage", "tips", "android", "iphone", "how-to"]
@@ -9,8 +9,9 @@ type: "how-to"
 draft: false
 featured: false
 featuredImage:
-  src: "/images/covers/mobile.png"
-  alt: "Cyan cover illustration for a phone storage guide"
+  src: "/images/covers/free-up-storage-phone.jpg"
+  alt: "A hand holding a smartphone, representing how to free up storage space"
+  credit: "Photo via Unsplash"
 seo:
   title: "How to Free Up Storage on Your Phone (Android & iPhone)"
   description: "Storage full? Reclaim gigabytes in minutes — clear cached data, offload photos and videos, clean WhatsApp and downloads, and more for Android and iPhone."

@@ -1,7 +1,7 @@
 ---
 title: "How to Fix an Android Phone That Is Running Slowly"
 description: "Is your Android phone slow and laggy? Follow these 10 practical fixes — from restarting and freeing storage to cleaning up apps — to make it fast again."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-01-12
 updatedDate: 2026-08-01
 category: "android"
@@ -10,9 +10,10 @@ type: "troubleshooting"
 draft: false
 featured: true
 featuredImage:
-  src: "/images/covers/android.png"
-  alt: "An illustrated green cover for an Android speed guide"
+  src: "/images/covers/android-phone-running-slow.jpg"
+  alt: "Hands holding a smartphone, representing how to speed up a slow Android phone"
   caption: "Slow Android phone? Start with a restart and build up from there."
+  credit: "Photo via Unsplash"
 seo:
   title: "Android Phone Running Slowly? 10 Fixes That Actually Work"
   description: "Lagged out Android phone? Restart, clear storage, update apps, and more. Our 10-step guide brings a slow Android phone back up to speed."

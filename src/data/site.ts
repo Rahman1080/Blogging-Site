@@ -10,10 +10,10 @@ export interface Category {
  * extend the site structure (e.g. add a new category).
  */
 export const siteConfig = {
-  name: "Deli Daily Updates World",
-  shortName: "Deli Daily Updates",
-  legalName: "Deli Daily Updates World",
-  url: "https://deli-dailyupdatesworld.com",
+  name: "Info 24/7",
+  shortName: "Info 24/7",
+  legalName: "Info 24/7",
+  url: "https://dailyupdatesworld.com",
   language: "en",
   locale: "en_US",
   description:
@@ -21,15 +21,15 @@ export const siteConfig = {
   keywords:
     "how-to guides, tech tutorials, troubleshooting, tips and tricks, life hacks, buying guides, AI guides, Android, iPhone, Windows, Mac",
   author: {
-    name: "Deli Daily Updates Editorial Team",
-    url: "https://deli-dailyupdatesworld.com/about",
+    name: "Info 24/7 Editorial Team",
+    url: "https://dailyupdatesworld.com/about",
   },
   social: {
     twitter: "",
     facebook: "",
     linkedin: "",
   },
-  email: "hello@deli-dailyupdatesworld.com",
+  email: "hello@dailyupdatesworld.com",
   newsletter: {
     enabled: true,
     title: "Get the useful stuff, weekly",

@@ -1,7 +1,7 @@
 ---
 title: "Password Managers Explained: Why You Need One (and How to Set It Up)"
 description: "The honest case for password managers — why reusing passwords is dangerous, how a manager fixes it, and a step-by-step setup guide for beginners."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-04-18
 updatedDate: 2026-08-20
 category: "cybersecurity"
@@ -10,8 +10,9 @@ type: "tutorial"
 draft: false
 featured: false
 featuredImage:
-  src: "/images/covers/cybersecurity.png"
-  alt: "Dark grey cover illustration for a password security guide"
+  src: "/images/covers/password-manager-guide.jpg"
+  alt: "A digital padlock, representing password managers and online security"
+  credit: "Photo via Unsplash"
 seo:
   title: "Password Managers Explained + How to Set One Up in 10 Minutes"
   description: "Stop reusing passwords. What a password manager is, why it's the single best security upgrade you can make, and how to set one up today."

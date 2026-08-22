@@ -1,7 +1,7 @@
 ---
 title: "What Is AI? A Plain-English Guide for Everyone"
 description: "Artificial intelligence explained without the jargon. Learn what AI actually is, how chatbots like ChatGPT work, what it can and can't do, and what it means for you."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-02-25
 category: "ai"
 tags: ["ai", "chatgpt", "explainer", "technology"]
@@ -9,8 +9,9 @@ type: "explainer"
 draft: false
 featured: true
 featuredImage:
-  src: "/images/covers/ai.png"
-  alt: "Purple cover illustration for an AI explainer guide"
+  src: "/images/covers/what-is-ai-explained.jpg"
+  alt: "A small white robot, representing artificial intelligence"
+  credit: "Photo via Unsplash"
 seo:
   title: "What Is AI? Explained in Plain English (2026)"
   description: "No jargon, no hype. What artificial intelligence really is, how chatbots work, what AI can and can't do, and how to use it safely."

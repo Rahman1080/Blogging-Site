@@ -11,7 +11,7 @@ const crumbs = [
 
 <BaseLayout
   title="Contact"
-  description="Get in touch with the Deli Daily Updates World editorial team."
+  description="Get in touch with the Info 24/7 editorial team."
 >
   <PageLayout title="Contact us" breadcrumbs={crumbs}>
     <p>
@@ -132,7 +132,7 @@ const crumbs = [
 
     const subject = encodeURIComponent(`[Contact] ${topic} — from ${name}`);
     const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:${encodeURIComponent(import.meta.env.PUBLIC_CONTACT_EMAIL || "hello@deli-dailyupdatesworld.com")}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${encodeURIComponent(import.meta.env.PUBLIC_CONTACT_EMAIL || "hello@dailyupdatesworld.com")}?subject=${subject}&body=${body}`;
 
     if (status) {
       status.textContent = "Opening your email app…";

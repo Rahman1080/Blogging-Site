@@ -1,7 +1,7 @@
 ---
 title: "How to Make Your Android Battery Last Longer"
 description: "Simple, proven ways to get a full day (or more) from your Android battery — adjust brightness, limit background apps, manage screen timeouts, and avoid common battery myths."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-01-28
 updatedDate: 2026-07-15
 category: "android"
@@ -10,8 +10,9 @@ type: "tips"
 draft: false
 featured: true
 featuredImage:
-  src: "/images/covers/android.png"
-  alt: "Green cover illustration for an Android battery guide"
+  src: "/images/covers/extend-android-battery-life.jpg"
+  alt: "A smartphone charging with a cable, representing how to extend battery life"
+  credit: "Photo via Unsplash"
 seo:
   title: "Android Battery Draining Fast? 12 Ways to Make It Last Longer"
   description: "Stop your Android battery dying by mid-afternoon. Practical settings, app habits, and charging tips that actually extend battery life."

@@ -1,7 +1,7 @@
 ---
 title: "How to Choose a Laptop: The Only Buying Guide You Need"
 description: "A step-by-step laptop buying guide: how to match CPU, RAM, storage, screen, and battery to what you actually do — plus which specs to stop overpaying for."
-author: "Deli Daily Updates Editorial Team"
+author: "Info 24/7 Editorial Team"
 pubDate: 2026-04-02
 category: "buying-guides"
 tags: ["buying-guide", "laptops", "comparison", "shopping"]
@@ -9,8 +9,9 @@ type: "buying-guide"
 draft: false
 featured: true
 featuredImage:
-  src: "/images/covers/laptops-computers.png"
-  alt: "Grey cover illustration for a laptop buying guide"
+  src: "/images/covers/how-to-choose-a-laptop-buying-guide.jpg"
+  alt: "A laptop on a desk, representing how to choose the right laptop"
+  credit: "Photo via Unsplash"
 seo:
   title: "How to Choose a Laptop in 2026 (What Actually Matters)"
   description: "Stop overpaying for specs you don't need. Match processor, RAM, storage, screen, and battery life to your real usage with this step-by-step laptop buying guide."
