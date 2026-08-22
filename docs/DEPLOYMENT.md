@@ -43,20 +43,37 @@ Upload this folder's **contents** to your Hostinger `public_html/` directory.
 
 ## Option B — Hostinger Git deployment (recommended)
 
-Hostinger's hPanel supports deploying straight from a Git repository.
+Hostinger's hPanel supports deploying straight from a Git repository. The site is fully
+static (`output: "static"`), so Hostinger just needs to run the build and serve the files
+from your document root — no Node.js process, VPS, or backend is required.
 
-1. Push this repository to a GitHub repository (private is fine).
-2. In hPanel go to **Websites → your site → Git** (under Advanced).
-3. Connect the repository and set the deploy command:
+### Git settings
 
-   ```bash
-   npm ci && npm run build
-   ```
+In hPanel go to **Websites → your site → Advanced → Git** and fill in:
 
-4. Set the **Deployment path** to `public_html` and the **Application root** to `dist/`.
-5. Add the environment variable `PUBLIC_SITE_URL=https://dailyupdatesworld.com`
-   if Hostinger's Git app supports env vars; otherwise the default already matches.
-6. Deploy. Hostinger runs the build and serves `dist/` from your domain.
+| Setting | Value |
+| --- | --- |
+| Repository URL | `https://github.com/Rahman1080/Blogging-Site` |
+| Branch | `master` |
+| Build command | `npm ci && npm run build` |
+| Output / deploy directory (Application root) | `dist/` |
+| Document root (Deployment path) | `public_html/` |
+
+Deploy steps:
+
+1. Connect the repository, select branch `master`, and enter the build command above.
+2. Point the **Application root** at `dist/` and the **Deployment path** at `public_html/`.
+   Hostinger builds the project and copies the **contents** of `dist/` (index.html,
+   _astro/, sitemap files, robots.txt, .htaccess, images) directly into `public_html/`.
+3. Required environment variables: **none**. `siteConfig.url` in `src/data/site.ts`
+   already defaults to `https://dailyupdatesworld.com`, so canonical tags, the sitemap,
+   and RSS are correct even without setting anything in Hostinger's Git settings.
+4. Press **Deploy**. When it finishes, open `https://dailyupdatesworld.com` and verify
+   the homepage, an article, and `/404` render.
+
+> If the deploy lands in a subfolder (e.g. `public_html/dist/…`), the domain shows **403
+> Forbidden** because no `index.html` exists at the document root. Point the deploy output
+> at `public_html/` itself (see Troubleshooting below).
 
 ## Environment variables
 
@@ -96,6 +113,16 @@ rebuild, deploy.
 
 ## Troubleshooting
 
+- **403 Forbidden on the whole domain** — the files are not at the document root. This
+  happens when the Git deploy copies the `dist/` **folder** (or its build output) into a
+  subfolder such as `public_html/dist/` instead of into `public_html/` itself, leaving no
+  `index.html` at the site root. Fix: set the deploy's document root / deployment path to
+  `public_html/` and the application root to `dist/`, then redeploy. After a correct
+  deploy, `https://dailyupdatesworld.com/index.html` must exist.
+- **403 on a specific folder** — directory listing is disabled (`Options -Indexes` in the
+  shipped `.htaccess`) and that folder has no `index.html`. All real routes have one;
+  if you see it, you are browsing an empty directory. The shipped `.htaccess` also maps
+  `ErrorDocument 403 /404.html`, so stray 403s render the styled 404 page.
 - **Links 404** — you uploaded the `dist/` folder instead of its contents, or the domain
   differs from `PUBLIC_SITE_URL`. Rebuild with the correct URL and upload again.
 - **`.htaccess` not taking effect** — Hostinger uses LiteSpeed/Apache; confirm your plan

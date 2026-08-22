@@ -19,7 +19,10 @@ export default defineConfig({
     }),
   ],
   server: {
-    allowedHosts: [".monkeycode-ai.live"],
+    // Dev preview only (e.g. the MonkeyCode *.monkeycode-ai.live host).
+    // `import.meta.env.DEV` is true for `astro dev`/`astro preview` and false for
+    // `astro build`, so this option is never set during the Hostinger deploy build.
+    allowedHosts: import.meta.env.DEV ? [".monkeycode-ai.live"] : undefined,
   },
   vite: {
     build: {
