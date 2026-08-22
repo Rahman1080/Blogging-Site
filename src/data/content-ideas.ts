@@ -14,6 +14,9 @@ export interface Idea {
   relatedKeywords?: string[];
   longTail?: string[];
   relatedQuestions?: string[];
+  /** Set to "published" (with article slug) once the piece is live. */
+  status?: "published" | "in-progress";
+  article?: string;
 }
 
 export interface IdeaSection {
@@ -30,6 +33,17 @@ export const contentIdeas: IdeaSection[] = [
     description:
       "Topics with strong current search demand. Write only if you can add genuinely useful, evergreen value — not just another SEO page.",
     ideas: [
+      {
+        topic: "AI scam calls and deepfakes: how to spot and stop them",
+        category: "Cybersecurity",
+        why: "Search interest in 'deepfake' has roughly quadrupled over the last five years, and voice-cloning scams are now a focus of FTC and FBI warnings. Demand is high and evergreen; most coverage is either too technical or too shallow.",
+        intent: "How-to",
+        relatedKeywords: ["ai scam calls", "voice cloning scam", "deepfake scam"],
+        longTail: ["how to spot ai voice scam calls", "can scammers clone my voice"],
+        relatedQuestions: ["How do scammers clone voices?", "What do I do if I sent money in a scam?"],
+        status: "published",
+        article: "ai-scams-deepfake-calls",
+      },
       {
         topic: "How to clear ChatGPT / AI chatbot history and data",
         category: "AI",
@@ -91,6 +105,30 @@ export const contentIdeas: IdeaSection[] = [
         relatedKeywords: ["what are passkeys", "set up passkeys"],
         longTail: ["how to use passkeys on iphone", "passkey vs password"],
         relatedQuestions: ["Are passkeys safe?", "Do passkeys work across devices?"],
+        status: "published",
+        article: "passkeys-explained",
+      },
+      {
+        topic: "eSIM: what it is and how to set it up",
+        category: "Mobile",
+        why: "eSIM support is now standard on iPhones and most Androids, and Apple has dropped the physical SIM tray in the US. Travel-data and dual-SIM questions keep growing.",
+        intent: "Tutorial",
+        relatedKeywords: ["what is esim", "how to set up esim"],
+        longTail: ["how to add esim to iphone", "best esim for travel"],
+        relatedQuestions: ["Is eSIM better than a SIM card?", "Can I use eSIM and physical SIM together?"],
+        status: "published",
+        article: "esim-explained",
+      },
+      {
+        topic: "How to run AI on your own computer (local AI)",
+        category: "AI",
+        why: "Rising interest in private, offline, and free AI as cloud subscriptions and data concerns grow. Most existing guides assume technical comfort; a true beginner guide stands out.",
+        intent: "Tutorial",
+        relatedKeywords: ["local ai", "run llm on pc", "ollama"],
+        longTail: ["how to run chatgpt on my computer offline", "best local ai models for pc"],
+        relatedQuestions: ["Is local AI private?", "Do I need a powerful PC for local AI?"],
+        status: "published",
+        article: "run-ai-on-your-computer-local-ai",
       },
       {
         topic: "How to make your laptop battery last longer",
@@ -162,6 +200,71 @@ export const contentIdeas: IdeaSection[] = [
     description:
       "Likely to grow over the next 6–36 months around AI, software, smartphones, gadgets, privacy and emerging digital services. Build authority early with honest, non-hyped content.",
     ideas: [
+      {
+        topic: "AI agents explained (what they can do today and what's next)",
+        category: "AI",
+        why: "The next major AI wave: 'computer use' agents from OpenAI and Anthropic, plus on-device agents coming to phones. Search interest is early but growing fast; a plain-English explainer can own the topic.",
+        intent: "Explainer",
+        relatedKeywords: ["ai agents", "computer use ai", "ai agents explained"],
+        longTail: ["what are ai agents and how do they work", "ai agents examples"],
+        relatedQuestions: ["What's the difference between a chatbot and an AI agent?", "Are AI agents safe?"],
+        status: "published",
+        article: "ai-agents-explained",
+      },
+      {
+        topic: "On-device AI: what AI features are coming to phones",
+        category: "AI",
+        why: "Apple, Google, and Samsung are pushing on-device AI assistants. How-to and 'what is it' searches will spike around each new phone and OS release for the next several years.",
+        intent: "Explainer",
+        relatedKeywords: ["on device ai", "phone ai features"],
+        longTail: ["what is on-device ai", "ai features on new phones"],
+        relatedQuestions: ["Is on-device AI private?", "Do I need a new phone for AI features?"],
+      },
+      {
+        topic: "AI search engines compared (Google, Perplexity, and the rest)",
+        category: "AI",
+        why: "'AI search' is a fast-growing query category as Google rolls out AI Overviews and tools like Perplexity gain users. A practical, updated comparison rewards structured evergreen content.",
+        intent: "Comparison",
+        relatedKeywords: ["ai search engines", "perplexity vs google"],
+        longTail: ["best ai search engine", "is google dead for search"],
+        relatedQuestions: ["Should I switch from Google to an AI search engine?", "Are AI search answers accurate?"],
+      },
+      {
+        topic: "Quantum computing in plain English",
+        category: "Technology",
+        why: "Quantum computing keeps moving toward practical use and generates steady, high-intent 'explain it to me' searches. Thin competition for genuinely plain-language explainers.",
+        intent: "Explainer",
+        relatedKeywords: ["quantum computing explained", "what is a qubit"],
+        longTail: ["quantum computing for beginners", "when will quantum computers be useful"],
+        relatedQuestions: ["Will quantum computers replace normal computers?", "What can quantum computers do?"],
+      },
+      {
+        topic: "AI regulation: what the new rules mean for you",
+        category: "AI",
+        why: "Search interest in 'AI Act' and 'AI regulation' has grown enormously. As laws land in the EU and elsewhere, users will search for plain-language explanations of what's now restricted.",
+        intent: "Explainer",
+        relatedKeywords: ["ai act", "ai regulation explained"],
+        longTail: ["what does the eu ai act mean", "is deepfake content illegal"],
+        relatedQuestions: ["Can I still use AI tools after the new rules?", "What is the EU AI Act?"],
+      },
+      {
+        topic: "How to check if an AI was used to make something",
+        category: "AI",
+        why: "As AI-generated text, images, and video spread, 'detect AI content' queries are rising. An honest guide about the limits of detection tools would fill a real gap.",
+        intent: "How-to",
+        relatedKeywords: ["detect ai content", "ai detector"],
+        longTail: ["can ai detectors be trusted", "how to tell if text is ai written"],
+        relatedQuestions: ["Are AI detectors accurate?", "Can watermarking really work?"],
+      },
+      {
+        topic: "Smart rings and the next wave of wearables",
+        category: "Gadgets",
+        why: "Wearable interest is moving from smartwatches to smart rings and e-textiles. Early explainer and comparison content earns long-tail searches as adoption grows.",
+        intent: "Buying guide / explainer",
+        relatedKeywords: ["smart ring", "smart ring vs smartwatch"],
+        longTail: ["what can a smart ring do", "is a smart ring worth it"],
+        relatedQuestions: ["Do smart rings need a phone?", "Which smart ring should I buy?"],
+      },
       {
         topic: "How to evaluate AI tools for real-world work (not hype)",
         category: "AI",

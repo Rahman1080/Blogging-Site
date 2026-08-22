@@ -116,4 +116,6 @@ The common questions — from "are password managers safe?" to "what if I forget
 
 A password manager is the highest-impact security upgrade you can make, full stop. It takes ten minutes to set up, and from then on every account you have gets a unique, unguessable password — automatically.
 
+Getting tired of passwords altogether? Passkeys are the password-free system built into your phone — see our [plain-English passkeys guide](/articles/passkeys-explained) for how they work and how to start using them.
+
 Want to stay sharp on the rest of your digital security? Our [plain-English guide to AI](/articles/what-is-ai-explained) explains the other big tech trend you're navigating every day.

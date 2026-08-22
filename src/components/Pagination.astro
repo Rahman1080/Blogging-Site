@@ -9,7 +9,7 @@ const { current, totalPages, basePath } = Astro.props;
 
 function pageUrl(page: number): string {
   if (page === 1) return basePath;
-  return `${basePath}page/${page}/`;
+  return `${basePath.replace(/\/$/, "")}/page/${page}/`;
 }
 
 const pages: (number | "...")[] = [];

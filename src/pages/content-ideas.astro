@@ -36,6 +36,11 @@ const crumbs = [{ name: "Home", url: "/" }, { name: "Content Ideas", url: "/cont
                   <h3>{idea.topic}</h3>
                   <span class="idea-card__cat">{idea.category}</span>
                 </div>
+                {idea.status === "published" && idea.article && (
+                  <p class="idea-card__published">
+                    Published: <a href={`/articles/${idea.article}`}>/articles/{idea.article}</a>
+                  </p>
+                )}
                 <p class="idea-card__why">{idea.why}</p>
                 {idea.intent && (
                   <p class="idea-card__meta">
@@ -130,6 +135,17 @@ const crumbs = [{ name: "Home", url: "/" }, { name: "Content Ideas", url: "/cont
     padding: 0.15rem 0.5rem;
     border-radius: 999px;
     white-space: nowrap;
+  }
+
+  .idea-card__published {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--good-ink, #1a7f37);
+    background: var(--good-soft, #dcfce7);
+    border-radius: 999px;
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    margin-bottom: 0.6rem;
   }
 
   .idea-card__why {
