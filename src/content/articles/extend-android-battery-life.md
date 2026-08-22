@@ -32,7 +32,7 @@ faq:
     answer: "If your phone dies above 30%, shuts off randomly, or the battery health is below roughly 80% of design capacity, a replacement is worthwhile. On many phones you can check estimated battery health in Settings → Battery → Battery health."
 ---
 
-Few things are more annoying than a phone that needs charging by early afternoon. The good news: most battery drain comes from a handful of settings and habits you can change in a few minutes.
+Few things are more annoying than a phone that needs charging by early afternoon. Most of the drain comes from a handful of settings and habits you can change in a few minutes.
 
 This guide covers the fixes that genuinely work, in order of impact. Let's start with the biggest wins.
 

@@ -68,14 +68,26 @@ Copy `.env.example` to `.env` (never commit the real `.env`). All variables are 
 | `PUBLIC_GA_ID` | Google Analytics 4 measurement ID (`G-XXXXXXX`) | off |
 | `PUBLIC_GTM_ID` | Google Tag Manager container ID (`GTM-XXXX`) | off |
 | `PUBLIC_ADS_ENABLED` | Render ad placeholders (`true`/`false`) | off |
+| `INDEXNOW_KEY` | IndexNow key (optional; auto-detected from `public/<key>.txt`) | auto |
 
 ## After deploying
 
 1. **Google Search Console** — verify domain ownership (DNS TXT or HTML file), then submit
    `https://dailyupdatesworld.com/sitemap-index.xml`.
-2. **Bing Webmaster Tools** — submit the same sitemap if you want Bing coverage.
-3. Check `robots.txt` and `.htaccess` were uploaded (they are in `dist/`).
-4. Test the site: homepage, an article page, `/search`, a category page, and the 404 page.
+2. **Bing Webmaster Tools** — verify the site (your IndexNow key file doubles as a
+   verification file), then submit the sitemap.
+3. **Bing IndexNow** — notify Bing of new/updated URLs after every deploy:
+
+   ```bash
+   npm run indexnow
+   ```
+
+   The key file (`public/<key>.txt`) and `public/indexnow.txt` are already in `dist/`, so
+   no extra setup is needed on the server. Use `--dry-run` to preview the URL list first.
+   Yandex does not use IndexNow; it picks up the same XML sitemap and robots.txt.
+4. Check `robots.txt` and `.htaccess` were uploaded (they are in `dist/`).
+5. Test the site: homepage, an article page, `/search`, a category page, an author page,
+   and the 404 page.
 
 ## Publishing an article (reminder)
 

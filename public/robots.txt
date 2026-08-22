@@ -10,4 +10,7 @@ Disallow: /*/draft/
 # The search page duplicates article content; let Google index the articles themselves
 Disallow: /search
 
+# Internal planning dashboard — not for search engines
+Disallow: /content-ideas
+
 Sitemap: https://dailyupdatesworld.com/sitemap-index.xml

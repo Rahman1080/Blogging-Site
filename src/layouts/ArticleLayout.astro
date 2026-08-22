@@ -7,6 +7,7 @@ import ShareButtons from "../components/ShareButtons.astro";
 import RelatedArticles from "../components/RelatedArticles.astro";
 import AdSlot from "../components/AdSlot.astro";
 import { getCategory, formatDate } from "../data/site";
+import { authorUrlFor } from "../data/authors";
 import { articleUrl, ARTICLE_BASE } from "../lib/content";
 import { readingTime } from "../lib/utils";
 import {
@@ -79,7 +80,7 @@ const noindex = data.seo?.noindex || false;
           <span class="meta-author__initials" aria-hidden="true">
             {data.author.slice(0, 2).toUpperCase()}
           </span>
-          {data.author}
+          <a href={authorUrlFor(data.author)} rel="author">{data.author}</a>
         </span>
         <span class="meta-dot" aria-hidden="true">·</span>
         <time datetime={new Date(data.pubDate).toISOString()}>{formatDate(data.pubDate)}</time>

@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import { siteConfig } from "../data/site";
+
+const crumbs = [
+  { name: "Home", url: "/" },
+  { name: "Editorial Policy", url: "/editorial-policy" },
+];
+
+const lastUpdated = "2026-08-22";
+---
+
+<BaseLayout
+  title="Editorial Policy"
+  description="How {siteConfig.name} produces trustworthy, evergreen, human-reviewed content — from research and fact-checking to corrections and AI disclosure."
+>
+  <PageLayout title="Editorial Policy" breadcrumbs={crumbs} updatedDate={lastUpdated}>
+    <p>Last updated: {lastUpdated}</p>
+
+    <h2>Our purpose</h2>
+    <p>
+      {siteConfig.name} publishes practical, evergreen information — guides, how-tos,
+      troubleshooting help, tips, buying guidance, and plain-English explanations of
+      technology. We deliberately do not chase breaking news. Our goal is content that stays
+      accurate and useful for years, not articles written for clicks.
+    </p>
+
+    <h2>How articles are produced</h2>
+    <p>
+      Every article follows a fixed workflow before publication:
+      <strong>Research → AI draft → Humanize → Fact check → SEO check → Human review → Publish.</strong>
+      AI tools assist with research and drafting, but AI is never allowed to publish content on
+      its own. A human reviews, edits, and approves everything that appears on this site.
+    </p>
+
+    <h2>Accuracy and sourcing</h2>
+    <ul>
+      <li>We prefer well-established, version-independent advice and clearly state when something depends on a device, software version, or configuration.</li>
+      <li>We link to trustworthy sources — official documentation, manufacturers, and reputable organizations — when facts are specific or could change.</li>
+      <li>We do not invent statistics, quotes, or experiences. If we cannot verify a claim, we say so.</li>
+      <li>Recommendations are based on usefulness and honesty, not on who pays us.</li>
+    </ul>
+
+    <h2>Corrections</h2>
+    <p>
+      Technology changes quickly and mistakes can happen. When an error is found, we correct it
+      and, where appropriate, note the update in the article's “Updated” date. To report an
+      error, email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+    </p>
+
+    <h2>AI-assisted content</h2>
+    <p>
+      We use AI to assist with drafting and research. All AI-assisted content is humanized,
+      fact-checked, and edited by people before publication, and we hold it to the same
+      standards as fully human-written content. We never publish low-effort or auto-generated
+      articles.
+    </p>
+
+    <h2>Independence and monetization</h2>
+    <p>
+      Editorial content is independent of advertisers and affiliate partners. Articles that are
+      sponsored or contain affiliate links are always disclosed in the article itself. Affiliate
+      relationships never determine what we publish or what we recommend. See the{" "}
+      <a href="/disclaimer">Disclaimer</a> for details.
+    </p>
+
+    <h2>Evergreen maintenance</h2>
+    <p>
+      We periodically review published articles to check for outdated advice and refresh them
+      when needed. When an article is updated, its “Updated” date changes so readers know the
+      information is current.
+    </p>
+  </PageLayout>
+</BaseLayout>

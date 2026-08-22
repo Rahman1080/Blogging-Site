@@ -1,0 +1,99 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { authors } from "@/data/authors";
+import { getAllArticles } from "@/lib/content";
+
+const articles = await getAllArticles();
+const countFor = (name: string) => articles.filter((a) => a.data.author === name).length;
+
+const crumbs = [{ name: "Home", url: "/" }, { name: "Authors", url: "/authors" }];
+---
+
+<BaseLayout
+  title="Authors — Info 24/7"
+  description="The writers behind Info 24/7's practical, evergreen tech guides."
+>
+  <div class="container page">
+    <Breadcrumbs items={crumbs} />
+    <h1>Our Writers</h1>
+    <p class="lede">The people who research and write the guides on Info 24/7.</p>
+
+    <div class="authors-list">
+      {authors.map((a) => (
+        <a class="author-row" href={`/authors/${a.slug}`}>
+          <div class="author-row__avatar" aria-hidden="true">
+            {a.image ? (
+              <img src={a.image} alt="" loading="lazy" />
+            ) : (
+              <span>{a.name.slice(0, 2).toUpperCase()}</span>
+            )}
+          </div>
+          <div>
+            <h2 class="author-row__name">{a.name}</h2>
+            <p class="author-row__meta">{countFor(a.name)} published article{countFor(a.name) === 1 ? "" : "s"}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lede {
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin-bottom: 2rem;
+  }
+
+  .authors-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .author-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .author-row:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .author-row__avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: var(--accent-strong);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .author-row__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .author-row__name {
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+
+  .author-row__meta {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+</style>

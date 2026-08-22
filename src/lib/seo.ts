@@ -1,6 +1,7 @@
 import type { Article } from "./content";
 import { siteConfig } from "../data/site";
 import { articleUrl } from "./content";
+import { authorUrlFor } from "../data/authors";
 
 function siteUrl(path = ""): string {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -50,7 +51,7 @@ export function articleSchema(entry: Article) {
     author: {
       "@type": "Person",
       name: authorName,
-      url: authorName === siteConfig.author.name ? siteConfig.author.url : undefined,
+      url: siteUrl(authorUrlFor(authorName)),
     },
     publisher: {
       "@type": "Organization",

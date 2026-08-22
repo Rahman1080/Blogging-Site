@@ -14,7 +14,7 @@ export default defineConfig({
       lastmod: new Date(),
       filter: (page) => {
         // Exclude administrative / private paths from the sitemap.
-        return !/(?:^|\/)(404|drafts|admin|search)(?:\/|$)/.test(new URL(page).pathname);
+        return !/(?:^|\/)(404|drafts|admin|search|content-ideas)(?:\/|$)/.test(new URL(page).pathname);
       },
     }),
   ],

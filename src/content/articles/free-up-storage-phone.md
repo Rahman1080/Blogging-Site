@@ -29,7 +29,7 @@ faq:
     answer: "No. Cleaner apps mostly duplicate the free, built-in tools described in this guide, and many serve aggressive ads. Use the system tools instead."
 ---
 
-Phone storage fills up faster than anyone expects — especially with photos, videos, and chat apps. The good news: in most cases you can reclaim gigabytes in a few minutes without deleting anything important.
+Phone storage fills up faster than anyone expects — especially with photos, videos, and chat apps. In most cases you can reclaim gigabytes in a few minutes without deleting anything important.
 
 These methods work on both Android and iPhone. Start with the biggest wins.
 

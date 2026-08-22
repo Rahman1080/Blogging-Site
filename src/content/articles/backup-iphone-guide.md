@@ -30,7 +30,7 @@ sources:
   - "https://support.apple.com/en-us/118212"
 ---
 
-Your iPhone holds years of photos, conversations, and settings. If the phone is lost, broken, or stolen, a backup is the difference between a minor inconvenience and a real loss. The good news: Apple makes it easy, and you can be covered in minutes.
+Your iPhone holds years of photos, conversations, and settings. If the phone is lost, broken, or stolen, a backup is the difference between a minor inconvenience and a real loss. It's also simpler than you'd think — you can be covered in a few minutes.
 
 ## The three ways to back up, compared
 

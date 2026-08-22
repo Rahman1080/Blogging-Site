@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "draft": "node scripts/generate-draft.mjs"
+    "draft": "node scripts/generate-draft.mjs",
+    "indexnow": "node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "astro": "^5.1.0"

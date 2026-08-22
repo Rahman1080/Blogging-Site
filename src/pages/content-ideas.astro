@@ -1,0 +1,158 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { contentIdeas, getIdeaCount } from "@/data/content-ideas";
+
+const crumbs = [{ name: "Home", url: "/" }, { name: "Content Ideas", url: "/content-ideas" }];
+---
+
+<BaseLayout
+  title="Content Ideas Dashboard — Info 24/7"
+  description="Internal planning dashboard of content opportunities for Info 24/7."
+  noindex
+>
+  <div class="container page">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="page-hero">
+      <h1>Content Ideas Dashboard</h1>
+      <p class="lede">
+        An internal planning tool — {getIdeaCount()} ideas across five buckets. Ideas are based on
+        observed signals (search demand, trends, forum activity, product releases), but nothing here
+        is a ranking or traffic promise. Research each topic before writing.
+      </p>
+    </header>
+
+    {
+      contentIdeas.map((section) => (
+        <section class="idea-section" id={section.id}>
+          <h2>{section.label}</h2>
+          <p class="idea-section__desc">{section.description}</p>
+
+          <div class="idea-card-list">
+            {section.ideas.map((idea) => (
+              <article class="idea-card">
+                <div class="idea-card__head">
+                  <h3>{idea.topic}</h3>
+                  <span class="idea-card__cat">{idea.category}</span>
+                </div>
+                <p class="idea-card__why">{idea.why}</p>
+                {idea.intent && (
+                  <p class="idea-card__meta">
+                    <strong>Intent:</strong> {idea.intent}
+                  </p>
+                )}
+                {idea.relatedKeywords?.length ? (
+                  <p class="idea-card__meta">
+                    <strong>Related keywords:</strong> {idea.relatedKeywords.join(" · ")}
+                  </p>
+                ) : null}
+                {idea.longTail?.length ? (
+                  <p class="idea-card__meta">
+                    <strong>Long-tail:</strong> {idea.longTail.join(" · ")}
+                  </p>
+                ) : null}
+                {idea.relatedQuestions?.length ? (
+                  <p class="idea-card__meta">
+                    <strong>Related questions:</strong> {idea.relatedQuestions.join(" · ")}
+                  </p>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+
+    <p class="note">
+      Tip: after publishing or refreshing an article, rebuild and run{" "}
+      <code>npm run indexnow</code> to ping Bing IndexNow.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .lede {
+    color: var(--ink-soft);
+    max-width: 75ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .idea-section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .idea-section h2 {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    margin-bottom: 0.35rem;
+  }
+
+  .idea-section__desc {
+    color: var(--ink-soft);
+    max-width: 70ch;
+    margin-bottom: 1.25rem;
+  }
+
+  .idea-card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+  }
+
+  .idea-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    padding: 1.1rem 1.2rem;
+  }
+
+  .idea-card__head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .idea-card h3 {
+    font-size: 1.02rem;
+    line-height: 1.35;
+  }
+
+  .idea-card__cat {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-strong);
+    background: var(--accent-soft);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .idea-card__why {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .idea-card__meta {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .idea-card__meta strong {
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  .note {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+  }
+</style>

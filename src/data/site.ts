@@ -109,9 +109,12 @@ export const footerLinks = {
     { label: "Categories", href: "/categories" },
     { label: "Search", href: "/search" },
     { label: "RSS Feed", href: "/rss.xml" },
+    { label: "Content Ideas", href: "/content-ideas" },
   ],
   company: [
     { label: "About", href: "/about" },
+    { label: "Authors", href: "/authors" },
+    { label: "Editorial Policy", href: "/editorial-policy" },
     { label: "Contact", href: "/contact" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms of Use", href: "/terms" },
