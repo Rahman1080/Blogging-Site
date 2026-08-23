@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/what-is-a-qr-code.jpg"
   alt: "Smartphone camera scanning a QR code on a poster"
+  caption: "Huge QR code billboard in central Shibuya, readable even behind trees"
+  credit: "Photo via Wikimedia Commons (CC0) — Syced"
 seo:
   title: "What Is a QR Code and How to Scan It"
   description: "QR codes hold text, URLs, and more. Learn how they work, how to scan them with the camera on iPhone or Android, and how to stay safe."

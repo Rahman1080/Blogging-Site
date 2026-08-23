@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-clear-cache-browser.jpg"
   alt: "Browser settings window with the clear cache option highlighted"
+  caption: "Chromium (web browser)"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Clear Cookies & Cache (Chrome, Safari, Firefox)"
   description: "Clear cache and cookies in Chrome, Safari, and Firefox in minutes. What you lose, what you keep, and how often it's actually worth doing."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/internet-slow-at-night.jpg"
   alt: "Clock showing evening time next to a slow speed test result"
+  caption: "My Home Office (2020)"
+  credit: "Photo via Flickr (CC0)"
 seo:
   title: "Internet Slow at Night or Peak Hours? Why + Fixes"
   description: "Evening slowdowns are usually congestion: the neighborhood and your household streaming at once. Confirm it with timed speed tests, then apply these fixes."

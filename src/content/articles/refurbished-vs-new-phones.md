@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/refurbished-vs-new-phones.jpg"
   alt: "Refurbished phone box with a warranty and checkmark icon"
+  caption: "Group of diverse people using smartphones"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Refurbished vs New Phones: Worth It?"
   description: "Are refurbished phones as good as new? What the label really means, the warranty and battery questions to ask, and when buying new is smarter."

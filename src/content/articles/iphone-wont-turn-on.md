@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/iphone-wont-turn-on.jpg"
   alt: "iPhone with a black screen connected to a charging cable"
+  caption: "iPhone charging cable close up"
+  credit: "Photo via Rawpixel (CC0)"
 seo:
   title: "iPhone Won't Turn On or Charge: What to Do"
   description: "Work through the fix ladder: charge with a known-good cable, force restart, try recovery mode, and know when it's time for Apple support."

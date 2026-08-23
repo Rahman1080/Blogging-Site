@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/should-you-close-background-apps-android.jpg"
   alt: "Android recents screen showing open app cards being swiped away"
+  caption: "Google Android Apps"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Should You Close Background Apps on Android?"
   description: "Closing background apps rarely saves battery or speed — it often hurts. Learn what 'background apps' really are and when closing them helps."

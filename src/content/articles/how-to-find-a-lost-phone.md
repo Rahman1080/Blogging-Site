@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-find-a-lost-phone.jpg"
   alt: "Map view showing a phone's last known location with a pin"
+  caption: "Plume Flow 2 personal air pollution sensor and smartphone map"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Find a Lost Phone"
   description: "Find your lost or stolen phone with Find My on iPhone or Find My Device on Android, straight from any browser. Includes lock, erase, and what to do next."

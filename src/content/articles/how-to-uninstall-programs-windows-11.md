@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-uninstall-programs-windows-11.jpg"
   alt: "Windows Apps settings list with an uninstall button highlighted"
+  caption: "I forgot they even made computers"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "How to Completely Uninstall Programs in Windows 11"
   description: "Remove programs cleanly in Windows 11 with Settings or Control Panel, handle leftover files safely, and get rid of preinstalled bloatware."

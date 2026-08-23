@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-take-a-screenshot-android.jpg"
   alt: "Android phone showing a captured screenshot with the shutter animation"
+  caption: "Smartphone Screen"
+  credit: "Photo via StockSnap (CC0)"
 seo:
   title: "How to Take a Screenshot on Any Android Phone"
   description: "The one screenshot shortcut that works on every Android, plus Samsung palm swipe, scrolling screenshots, and where saved images go."

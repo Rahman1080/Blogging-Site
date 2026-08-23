@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-clear-cache-android.jpg"
   alt: "Android app info screen with the 'Clear cache' button highlighted"
+  caption: "Blackview A60 Smartphone Android mobile phone back face"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Acabashi"
 seo:
   title: "How to Clear Cache on Android (Built-in Tools)"
   description: "Clear app cache on Android without third-party apps: per-app steps, what cache vs data means, and the honest truth about how much space it frees."

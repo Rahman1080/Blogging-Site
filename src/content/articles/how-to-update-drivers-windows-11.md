@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-update-drivers-windows-11.jpg"
   alt: "Windows Update settings screen with optional updates highlighted"
+  caption: "A Ghanaian Computer Hardware Technician"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Update Drivers on Windows 11 Safely"
   description: "Skip the 'driver updater' apps. Update most drivers through Windows Update and graphics drivers from NVIDIA, AMD, or Intel — here's the safe way."

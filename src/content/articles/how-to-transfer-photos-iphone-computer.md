@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-transfer-photos-iphone-computer.jpg"
   alt: "iPhone transferring photos to a laptop with a USB cable"
+  caption: "Smartphone Use"
+  credit: "Photo via Wikimedia Commons (CC0) — Océanos y dados"
 seo:
   title: "Transfer iPhone Photos to Computer or iCloud"
   description: "Copy iPhone photos to a Mac or Windows PC with a USB cable, iCloud.com, or AirDrop — and understand HEIC vs JPEG so nothing gets mangled."

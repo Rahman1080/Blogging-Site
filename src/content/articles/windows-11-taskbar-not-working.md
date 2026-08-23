@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/windows-11-taskbar-not-working.jpg"
   alt: "Windows desktop with a missing taskbar and a question mark"
+  caption: "Office workspace laptop desktop screen"
+  credit: "Photo via Rawpixel (CC0)"
 seo:
   title: "Windows 11 Taskbar Not Working? Fix It Fast"
   description: "Taskbar frozen, icons missing, or start menu not opening on Windows 11? Work through these fixes, from restarting Explorer to system repair."

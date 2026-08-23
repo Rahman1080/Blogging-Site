@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/no-sound-on-computer.jpg"
   alt: "Computer with a sound icon crossed out and a speaker symbol"
+  caption: "Headphones"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "No Sound on Computer? Fix It Fast (Windows & Mac)"
   description: "No sound on your computer? Fix it fast with these ordered steps: mute, volume mixer, output device, cables, and the audio service — for Windows and Mac."

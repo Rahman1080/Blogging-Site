@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-scan-documents-with-phone.jpg"
   alt: "Smartphone scanning a paper document on a desk into a PDF icon"
+  caption: "GE Healthcare Typhoon 9400 scanner"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "How to Scan Documents With Your Phone"
   description: "Use your phone as a scanner: built-in tools in Notes on iPhone and Google Drive on Android, multi-page PDFs, and how to scan and email documents."

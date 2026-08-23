@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-explain-ai-vs-ml-vs-dl.jpg"
   alt: "Diagram showing how deep learning fits inside machine learning inside AI"
+  caption: "Hitachi with Artificial Intelligence"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "AI vs ML vs Deep Learning: Differences"
   description: "AI is the field, machine learning is how it's built, and deep learning is the subset behind today's chatbots. The difference, explained in plain English."

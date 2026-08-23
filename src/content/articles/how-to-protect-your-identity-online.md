@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-protect-your-identity-online.jpg"
   alt: "Shield icon protecting a profile with a person's personal details"
+  caption: "Data Security Breach"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "How to Protect Your Identity Online"
   description: "Practical habits to prevent identity theft, the early warning signs to watch for, and a step-by-step recovery plan if your personal information gets stolen."

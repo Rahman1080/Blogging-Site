@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/blue-screen-of-death-explained.jpg"
   alt: "Windows blue screen error with a stop code and sad face icon"
+  caption: "Blue Screen of Death"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Blue Screen of Death: What It Means + How to Fix It"
   description: "What a BSOD is, how to read the stop code, the most common causes, and a fix order — from a one-time crash to drivers, memory, and hardware."

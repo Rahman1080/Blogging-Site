@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-make-ai-videos.jpg"
   alt: "Video editing timeline with AI-generated clips"
+  caption: "Twickenham Film Studios"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Make Videos With AI (Beginner)"
   description: "How to make videos with AI from script to export: a practical step-by-step beginner workflow with free tools, plus honest limits, watermarks, and tips."

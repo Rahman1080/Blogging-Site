@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-spot-phishing-email.jpg"
   alt: "Example phishing email with red warning markers on sender and link"
+  caption: "Example of Domain Slamming phishing email by Network Solutions"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Spot a Phishing Email (Before You Click)"
   description: "Learn the phishing red flags to check in every email: sender address, urgency, mismatched links, and attachments — plus what to do if you already clicked."

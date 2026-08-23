@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/windows-vs-mac.jpg"
   alt: "Split screen showing a Windows laptop and a MacBook side by side"
+  caption: "MIT Laptop"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "Windows vs Mac: Which Is Right for You?"
   description: "A neutral Windows vs Mac comparison: ecosystem, price range, software, hardware choice, gaming, and longevity — with a framework to decide."

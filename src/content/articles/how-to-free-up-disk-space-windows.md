@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-free-up-disk-space-windows.jpg"
   alt: "Windows Storage settings showing the C drive nearly full"
+  caption: "Hard Drive"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Free Up Disk Space on Windows (No File Deletion)"
   description: "Clean the C drive safely with Storage Sense, Disk Cleanup, temporary files, and app removal — no third-party cleaners and no lost files."

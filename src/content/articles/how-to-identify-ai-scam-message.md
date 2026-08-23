@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-identify-ai-scam-message.jpg"
   alt: "Smartphone text bubble with an AI scam message and a warning symbol"
+  caption: "Man Phone Messaging"
+  credit: "Photo via Rawpixel (CC0)"
 seo:
   title: "How to Identify an AI Scam Message"
   description: "AI-written scam texts and emails no longer have typos or bad grammar. Learn the telltale patterns of AI phishing and how to verify a message before trusting it."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/android-phone-not-charging.jpg"
   alt: "Charging cable connected to an Android phone with a warning icon"
+  caption: "Smartphone charging bag on RW25T 553708 (20230720212618)"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "Android Phone Not Charging? 8 Fixes to Try"
   description: "Phone won't charge or charges slowly? Check the cable, clean the port, restart, and more. Ordered fixes from most common to most involved."

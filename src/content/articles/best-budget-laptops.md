@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/best-budget-laptops.jpg"
   alt: "A budget laptop on a desk with a subtle price tag"
+  caption: "HP Pavilion Computer laptop keyboard closeup"
+  credit: "Photo via Wikimedia Commons (CC BY 2.0) — Carissa Rogers"
 seo:
   title: "Best Budget Laptops: What to Expect"
   description: "What you really get in a budget laptop — build, screen, battery, and performance — plus the two upgrades worth paying for and the specs to avoid."

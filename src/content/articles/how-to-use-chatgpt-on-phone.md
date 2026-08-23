@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-use-chatgpt-on-phone.jpg"
   alt: "ChatGPT app icon on a smartphone home screen"
+  caption: "ChatGPT Esperanto"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Use ChatGPT on Your Phone (2026)"
   description: "How to use ChatGPT on your phone: install and use the official app on iPhone and Android, sign in, try voice mode, and share conversations to your desktop."

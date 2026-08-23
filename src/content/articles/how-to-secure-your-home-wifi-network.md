@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-secure-your-home-wifi-network.jpg"
   alt: "Shield icon over a wifi router with a padlock"
+  caption: "ASUS Wi-Fi ROUTER TUF 6500"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Dinkun Chen"
 seo:
   title: "How to Secure Your Home Wi-Fi Network (Checklist)"
   description: "Make your home Wi-Fi genuinely secure in 15 minutes: strong password, WPA2/WPA3, WPS off, firmware updated, and a guest network. Full checklist here."

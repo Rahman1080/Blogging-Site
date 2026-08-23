@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-reset-windows-pc.jpg"
   alt: "Windows reset options screen with 'Remove everything' selected"
+  caption: "Computer Mess"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "How to Reset a Windows PC (What You Lose)"
   description: "Reset Windows 11 the right way. What 'Keep my files' vs 'Remove everything' actually does, what you lose, and the steps to do it safely."

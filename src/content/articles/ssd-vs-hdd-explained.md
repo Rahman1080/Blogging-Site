@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/ssd-vs-hdd-explained.jpg"
   alt: "Side-by-side comparison of a hard drive, an SSD, and an NVMe drive"
+  caption: "2017 Dysk SSD Plextor M8Pe(Y) 256GB"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Jacek Halicki"
 seo:
   title: "SSD vs HDD vs NVMe: Which to Pick"
   description: "What's the real difference between HDD, SSD, and NVMe? Which one should you buy, and when does an old hard drive still make sense? Explained plainly."

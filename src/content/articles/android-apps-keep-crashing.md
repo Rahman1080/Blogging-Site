@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/android-apps-keep-crashing.jpg"
   alt: "Android home screen with an app icon showing a crashed/error state"
+  caption: "Foldable smartphone (Android Lollipop)"
+  credit: "Photo via Wikimedia Commons (CC BY 3.0) — The photo: Own work The logos: Google LLC"
 seo:
   title: "Android Apps Keep Crashing? 8 Fixes That Work"
   description: "\"Apps keep stopping\" on Android? Fix it: restart, update, clear cache, free storage, reinstall, and safe mode. Ordered from quick to deep."

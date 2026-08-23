@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/iphone-getting-hot.jpg"
   alt: "iPhone with a thermometer icon showing high temperature"
+  caption: "Apple-Phone"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "iPhone Getting Hot: Normal or a Problem?"
   description: "An iPhone gets warm during charging, navigation, and video — but some heat is a warning. Here's what's normal, what's not, and how to cool it safely."

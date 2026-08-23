@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/iphone-battery-draining-fast.jpg"
   alt: "iPhone battery icon at low percentage with a settings screen behind"
+  caption: "Smartphone display screen"
+  credit: "Photo via Wikimedia Commons (CC0) — Skitterphoto"
 seo:
   title: "iPhone Battery Draining Fast? Causes and Fixes"
   description: "Why your iPhone battery dies so fast — screen, background refresh, signal, an old battery — and the fixes that actually work, in the right order."

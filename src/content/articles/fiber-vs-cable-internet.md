@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/fiber-vs-cable-internet.jpg"
   alt: "Comparison icons for fiber, cable, DSL, and 5G internet"
+  caption: "Fiber Optic Ends"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Fiber vs Cable vs DSL vs 5G Home Internet"
   description: "Fiber, cable, DSL, and 5G home internet explained in plain language — what each is made of, how it feels to use, and how to tell which you have."

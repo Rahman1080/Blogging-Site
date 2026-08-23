@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/ai-in-everyday-life-examples.jpg"
   alt: "Smartphone showing map navigation, email, and music apps powered by AI"
+  caption: "Smartphone Apps Banner for WikiVoyage"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "AI in Everyday Life: 15 Examples You Use"
   description: "15 real examples of AI in everyday life you already rely on: face unlock, email spam filters, maps, music recommendations, banking fraud alerts, and more."

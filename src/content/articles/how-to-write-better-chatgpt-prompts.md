@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-write-better-chatgpt-prompts.jpg"
   alt: "Before and after example of a better-written ChatGPT prompt"
+  caption: "ChatGPT"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Write Better ChatGPT Prompts"
   description: "How to write better ChatGPT prompts: a simple formula, weak-vs-strong before-and-after examples, and the common mistakes that produce bad or vague AI answers."

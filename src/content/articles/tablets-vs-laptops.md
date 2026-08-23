@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/tablets-vs-laptops.jpg"
   alt: "Tablet with a keyboard case next to a laptop on a desk"
+  caption: "Framework Tablet Complete Build"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Whatthefilament"
 seo:
   title: "Tablet vs Laptop: Which Should You Buy?"
   description: "Tablets are great for media and notes; laptops still win for work. An honest comparison plus a simple rule for choosing between them."

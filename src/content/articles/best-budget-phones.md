@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/best-budget-phones.jpg"
   alt: "Three budget smartphones arranged on a surface with a price tag"
+  caption: "Android phone"
+  credit: "Photo via Wikimedia Commons (CC BY)"
 seo:
   title: "Best Budget Phones in 2026: What Actually Matters"
   description: "A budget phone can handle your whole daily life. Here's what matters at the low end — battery, updates, storage, camera — and what to ignore."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-save-webpage-as-pdf.jpg"
   alt: "Web browser print dialog with 'Save as PDF' selected"
+  caption: "Laptop computer"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — KK IN HK"
 seo:
   title: "How to Save a Web Page as a PDF (All Browsers)"
   description: "Turn any web page into a PDF with the browser's built-in print dialog — no extensions. Chrome, Safari, Firefox, Edge, and phone steps included."

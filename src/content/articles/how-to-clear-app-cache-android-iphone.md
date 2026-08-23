@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-clear-app-cache-android-iphone.jpg"
   alt: "Phone app info screen showing cache size and a clear button"
+  caption: "Fediverse smartphone apps (photo by Elena Rossini)"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Elexfedi"
 seo:
   title: "How to Clear App Cache on Android and iPhone"
   description: "Clear app cache on Android in a few taps. On iPhone, use offloading and reinstall instead. What cache vs data means and whether it's safe."

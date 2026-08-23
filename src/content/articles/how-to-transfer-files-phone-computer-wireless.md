@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-transfer-files-phone-computer-wireless.jpg"
   alt: "Phone and laptop connected by a wireless transfer symbol with files"
+  caption: "Bluetooth headset"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "Transfer Files From Phone to Computer Wirelessly"
   description: "Send photos, videos, and documents from your phone to your computer without a cable. Cloud storage, AirDrop, and Nearby Share compared honestly."

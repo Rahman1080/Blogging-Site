@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/windows-update-stuck.jpg"
   alt: "Windows Update progress bar stuck with a settings gear icon"
+  caption: "laptop"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Windows Update Stuck? Fixes That Actually Work"
   description: "Windows Update stuck at 0%, on downloading, or refusing to install? Wait it out, then try the troubleshooter, free disk space, and restart the update service."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/email-hacked-what-to-do.jpg"
   alt: "Email inbox with a warning banner about a compromised account"
+  caption: "Email de Christophe Barman"
+  credit: "Photo via Wikimedia Commons (Public domain) — Estelle Borgeat 2"
 seo:
   title: "Email Hacked? Here's What to Do Right Now"
   description: "Hacked email? Follow this recovery playbook in order: change the password, check forwarding rules, sign out everywhere, scan linked accounts, and turn on 2FA."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-set-up-a-new-router.jpg"
   alt: "New router with cables being connected to a modem"
+  caption: "Ethernet RJ45 connector p1160054"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Set Up a New Router (Step by Step)"
   description: "Set up a new Wi-Fi router in about 15 minutes: connect the hardware, open the admin page, choose a network name, and set a strong password."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-check-a-used-phone-before-buying.jpg"
   alt: "Hands examining a used smartphone with a checklist beside it"
+  caption: "Diverse people using phones"
+  credit: "Photo via Wikimedia Commons (CC BY)"
 seo:
   title: "Used Phone Checklist: Check Before Buying"
   description: "Screen, buttons, cameras, battery health, carrier lock — the full used-phone checklist, plus how to check the IMEI and meet safely."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-choose-computer-college.jpg"
   alt: "Backpack with a laptop and notebooks on a campus bench"
+  caption: "Smart Alec Laptop Backpack from Tom Bihn - With Accessory Bags"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Best Laptop for College: What to Actually Buy"
   description: "Choosing a computer for school is about your major, not the brand. A practical framework for picking by workload, battery, and budget."

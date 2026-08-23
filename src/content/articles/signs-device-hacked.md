@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/signs-device-hacked.jpg"
   alt: "Warning triangle over a laptop with a magnifying glass"
+  caption: "Computer virus scam"
+  credit: "Photo via Wikimedia Commons (CC0)"
 seo:
   title: "Signs Your Phone or Computer Is Hacked"
   description: "Not sure if your phone or computer has been hacked? Here are the believable signs — pop-ups, battery drain, unknown apps — and a quick recovery checklist."

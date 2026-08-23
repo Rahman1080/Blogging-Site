@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/windows-pc-wont-boot.jpg"
   alt: "Desktop PC stuck on the Windows logo with a loading spinner"
+  caption: "Desktop Computer"
+  credit: "Photo via StockSnap (CC0)"
 seo:
   title: "PC Won't Boot Past the Windows Logo? Fix It"
   description: "Stuck on the loading screen or caught in a boot loop? Check power and peripherals, try Startup Repair and Safe Mode, then use recovery tools."

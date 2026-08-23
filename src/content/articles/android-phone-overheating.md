@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/android-phone-overheating.jpg"
   alt: "Android phone with a temperature gauge icon and a fan"
+  caption: "Blackview A60 Smartphone Android mobile phone and folio case"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Acabashi"
 seo:
   title: "Android Phone Overheating? Causes + How to Cool It"
   description: "Why your Android gets hot, how to cool it down in minutes, and the warning signs — shutdowns, swollen battery — that need professional help."

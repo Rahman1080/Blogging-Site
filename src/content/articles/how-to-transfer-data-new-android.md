@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-transfer-data-new-android.jpg"
   alt: "Two Android phones side by side with an arrow showing data transfer"
+  caption: "Phone Street Moment | KLSP MS2"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "How to Transfer Data to a New Android Phone"
   description: "Move contacts, photos, apps, and messages to your new Android with the setup assistant or Google account sync. Step-by-step, nothing lost."

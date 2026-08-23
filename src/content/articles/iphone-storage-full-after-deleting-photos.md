@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/iphone-storage-full-after-deleting-photos.jpg"
   alt: "iPhone storage bar almost full with photo and other categories"
+  caption: "Smartphone di varie marche"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — The Tech Cheat"
 seo:
   title: "iPhone Storage Full After Deleting Photos? Fix It"
   description: "Deleted photos but iPhone storage is still full? Find out what's really using space — Recently Deleted, System Data, Messages — and how to free it."

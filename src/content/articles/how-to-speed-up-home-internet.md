@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-speed-up-home-internet.jpg"
   alt: "Router with signal waves in a living room setting"
+  caption: "Wi-fi router"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Solijon Solayev"
 seo:
   title: "Speed Up Home Internet Without a New Plan"
   description: "Fix slow home internet for free: restart the router, reposition it, switch bands, and run a cable. Ordered from what works most often."

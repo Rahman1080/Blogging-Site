@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-recover-deleted-photos.jpg"
   alt: "Photo with a recycle icon and a clock representing a 30-day window"
+  caption: "Old Leather Photo Album"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Recover Deleted Photos (Android & iPhone)"
   description: "Deleted photos aren't gone forever. Restore them from Recently Deleted or Trash on Android and iPhone, and learn why recovery apps are usually a scam."

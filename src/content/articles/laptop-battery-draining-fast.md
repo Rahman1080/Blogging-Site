@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/laptop-battery-draining-fast.jpg"
   alt: "Laptop with a battery icon and a power plug, showing low charge"
+  caption: "Toshiba laptop battery PA3166U-1BRS charger PCB front"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "Laptop Battery Draining Fast? Fixes That Actually Help"
   description: "Laptop battery dying too fast? Tackle brightness, background apps, sleep settings, and battery health on Windows and Mac."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-organize-digital-files.jpg"
   alt: "Neat folder structure on a computer desktop with labeled folders"
+  caption: "My office desk"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "How to Organize Your Digital Files"
   description: "A simple, repeatable system for organizing computer files: a shallow folder tree, consistent naming rules, and a 10-minute weekly cleanup habit. No apps needed."

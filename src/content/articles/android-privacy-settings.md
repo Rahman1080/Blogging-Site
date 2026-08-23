@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/android-privacy-settings.jpg"
   alt: "Android settings screen with privacy and permission toggles"
+  caption: "HTC G1 - Google Android Phone"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "Android Privacy Settings to Change Right Now"
   description: "Stop apps tracking you on Android: review permissions, limit location access, manage the advertising ID, and lock your screen. Quick wins."

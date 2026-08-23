@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-reduce-mobile-data.jpg"
   alt: "Smartphone data usage screen showing an app's consumption chart"
+  caption: "mobile phone mast"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "How to Reduce Mobile Data Usage"
   description: "Stop apps burning through your data plan. Check usage, limit background data, lower video quality, and control updates on Android and iPhone."

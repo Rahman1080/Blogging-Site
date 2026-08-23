@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-choose-internet-plan.jpg"
   alt: "Household devices (TV, laptop, phone, console) connected to an internet speed meter"
+  caption: "Wireless Router and Cable Modem"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "How Much Internet Speed Do You Need? (2026 Guide)"
   description: "Pick the right internet plan: honest speed ranges by household size and activity — streaming, gaming, video calls — plus upload vs download, explained simply."

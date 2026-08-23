@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/what-is-rcs-messaging.jpg"
   alt: "Two phones showing an RCS chat with read receipts and typing indicator"
+  caption: "Texting"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "What Is RCS Messaging and Should You Use It?"
   description: "RCS is the modern upgrade to SMS and MMS. What it changes (read receipts, typing, better media), who supports it, and how private it really is."

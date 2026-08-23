@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/face-id-not-working.jpg"
   alt: "iPhone lock screen with Face ID icon and a warning symbol"
+  caption: "Iphone Camera"
+  credit: "Photo via StockSnap (CC0)"
 seo:
   title: "Face ID Not Working? Fixes to Try"
   description: "Face ID not working or unavailable on iPhone? Clean the TrueDepth camera, remove the case, check settings, and re-enroll your face — plus when it's hardware."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-much-ram-do-you-need.jpg"
   alt: "RAM sticks on a motherboard with a memory meter illustration"
+  caption: "Schematic Diagram - CSIRAC Computer, 'Memory Output Gates', C22569, 1952-1955"
+  credit: "Photo via museumsvictoria (CC BY)"
 seo:
   title: "How Much RAM Do You Actually Need?"
   description: "8GB or 16GB? Here's how much RAM you need for browsing, office work, creative work, gaming, and phones — in plain numbers and plain language."

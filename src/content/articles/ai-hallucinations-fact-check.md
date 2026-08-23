@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/ai-hallucinations-fact-check.jpg"
   alt: "AI chatbot answering a question with a red warning icon about checking facts"
+  caption: "Robot"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "AI Hallucinations: Why AI Gets Things Wrong"
   description: "Why AI makes things up and how to fact-check it: what hallucinations are, why ChatGPT gets things wrong, and a simple step-by-step verification workflow."

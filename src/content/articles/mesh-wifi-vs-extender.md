@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/mesh-wifi-vs-extender.jpg"
   alt: "Comparison diagram of a mesh system versus a wifi extender"
+  caption: "Wireless mesh network diagram"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "Mesh Wi-Fi vs Extender vs Router: What to Buy"
   description: "Mesh systems, extenders, and single routers explained with a simple analogy — plus a decision checklist so you buy the right thing for your home."

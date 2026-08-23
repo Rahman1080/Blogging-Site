@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-connect-laptop-to-tv.jpg"
   alt: "Laptop connected to a TV with an HDMI cable showing a mirrored screen"
+  caption: "Apple TV"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "How to Connect a Laptop to a TV (HDMI + Wireless)"
   description: "Show your laptop on the TV: HDMI for reliability, wireless Cast or AirPlay when you have no cable, plus fixes when nothing appears."

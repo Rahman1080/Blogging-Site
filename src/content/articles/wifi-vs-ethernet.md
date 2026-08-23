@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/wifi-vs-ethernet.jpg"
   alt: "Split image comparing a wifi signal to an ethernet cable"
+  caption: "Ethernet Cables"
+  credit: "Photo via StockSnap (CC0)"
 seo:
   title: "Wi-Fi vs Ethernet: Which to Use and When"
   description: "Ethernet wins on speed and stability; Wi-Fi wins on convenience. Here's when each matters — and a simple rule for deciding on any device."

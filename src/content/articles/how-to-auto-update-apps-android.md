@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-auto-update-apps-android.jpg"
   alt: "Google Play Store settings screen with auto-update toggle on"
+  caption: "Foldable smartphone (Android Marshmallow)"
+  credit: "Photo via Wikimedia Commons (CC BY 3.0) — The photo: Own work The logos: Google LLC"
 seo:
   title: "How to Turn On Auto-Update for Android Apps"
   description: "Enable auto-update in the Play Store in 30 seconds, choose Wi-Fi-only to save data, and understand the security vs surprise trade-off."

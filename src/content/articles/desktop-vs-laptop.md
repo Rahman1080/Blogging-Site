@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/desktop-vs-laptop.jpg"
   alt: "Split image of a desktop tower and a laptop"
+  caption: "Laptop Computer"
+  credit: "Photo via StockSnap (CC0)"
 seo:
   title: "Desktop vs Laptop: Which Should You Buy?"
   description: "Honest desktop vs laptop comparison: portability, upgradeability, power, screen size, price, and a quick table to pick the right one."

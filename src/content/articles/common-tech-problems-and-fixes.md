@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/common-tech-problems-and-fixes.jpg"
   alt: "Checklist of common tech problems with checkmarks for fixes"
+  caption: "Computer repairs at Reading Repair Cafe"
+  credit: "Photo via Flickr (CC0)"
 seo:
   title: "Common Tech Problems and Quick Fixes"
   description: "The tech problems everyone hits — slow device, no Wi-Fi, full storage, frozen apps, no sound — with a quick fix for each and links to deeper guides."

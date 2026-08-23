@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/what-to-do-after-data-breach.jpg"
   alt: "Email inbox with an alert banner about a data breach"
+  caption: "Data Security"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Your Account Was in a Data Breach — Now What?"
   description: "Your account was in a data breach. Here's a calm playbook: check what leaked, change the right passwords first, enable 2FA, and watch for follow-up scams."

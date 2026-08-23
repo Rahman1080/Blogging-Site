@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/iphone-apps-keep-crashing.jpg"
   alt: "iPhone home screen with a crashed app icon and an error symbol"
+  caption: "Apple Smartphone"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "iPhone Apps Keep Crashing? Fix It Here"
   description: "Apps crashing or closing by themselves on iPhone? Fix it with this ordered ladder — restart, update, reinstall, check storage, reset — no data loss."

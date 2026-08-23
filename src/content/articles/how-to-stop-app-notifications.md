@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-stop-app-notifications.jpg"
   alt: "Phone notification center with a 'mute' toggle on an app alert"
+  caption: "Notification tai facebook"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Taiwada"
 seo:
   title: "How to Stop App Notifications"
   description: "App notification spam driving you crazy? Turn off alerts per app, use categories and schedules, and set up Do Not Disturb on Android and iPhone."

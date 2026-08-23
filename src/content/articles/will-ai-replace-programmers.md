@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/will-ai-replace-programmers.jpg"
   alt: "Developer using an AI coding assistant in an editor window"
+  caption: "Programmer writing code with Unit Tests"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "Can AI Replace Programmers? What Evidence Shows"
   description: "What AI coding tools do well and where they fail — plus what the evidence actually means for programmers, their jobs, and learning to code, without the hype."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/wifi-network-not-showing-up.jpg"
   alt: "Laptop showing a wifi list with one network missing and a question mark"
+  caption: "FRITZ!Box 7390 - Wifi antenna-7364"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Raimond Spekking"
 seo:
   title: "Wi-Fi Not Showing Up on One Device? Fixes to Try"
   description: "One device can't find or won't join your Wi-Fi while others connect fine? Try these fixes in order — restart, forget network, check airplane mode, encryption."

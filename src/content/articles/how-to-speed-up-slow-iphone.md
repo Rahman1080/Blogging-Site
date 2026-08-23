@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-speed-up-slow-iphone.jpg"
   alt: "iPhone with a speedometer icon surrounded by performance toggles"
+  caption: "Smartphone"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Ka Kit Pang"
 seo:
   title: "How to Speed Up a Slow iPhone (Real Fixes)"
   description: "Make an old or laggy iPhone fast again: free storage, stop force-quitting apps, update iOS, and the other performance fixes that actually work."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/android-screen-black-not-turning-on.jpg"
   alt: "Android phone with a black screen and a question mark"
+  caption: "Leaflet at Narita arrival. Requirement to have a smartphone to enter Japan during COVID-19 pandemic"
+  credit: "Photo via Wikimedia Commons (CC0) — Syced"
 seo:
   title: "Android Screen Won't Turn On? 6 Fixes to Try"
   description: "Android screen is black or won't wake? Try a forced restart, charge-and-wait, and diagnostic steps before assuming your phone is dead."

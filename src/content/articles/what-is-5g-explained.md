@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/what-is-5g-explained.jpg"
   alt: "Smartphone showing a 5G signal indicator over a city skyline"
+  caption: "2019-07-21 - Vodafone 5G Standort Hattstedt"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Fabian Horst"
 seo:
   title: "5G Explained: Do You Need a 5G Phone?"
   description: "What 5G actually does day to day, how it compares to 4G, whether it drains battery faster, and the honest answer on needing a 5G phone."

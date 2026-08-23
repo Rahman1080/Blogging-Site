@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-screen-record-iphone.jpg"
   alt: "iPhone Control Center with the screen recording button highlighted"
+  caption: "IPhone models"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Ka Kit Pang"
 seo:
   title: "How to Screen Record on iPhone (With Sound)"
   description: "Record your iPhone screen with or without audio: add the button to Control Center, start and stop a recording, find it in Photos, and trim it."

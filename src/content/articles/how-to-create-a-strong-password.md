@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-create-a-strong-password.jpg"
   alt: "Passphrase written as three random words with a separator, labelled as strong"
+  caption: "Free password lock laptop image"
+  credit: "Photo via Rawpixel (CC0)"
 seo:
   title: "How to Create a Strong Password You Can Remember"
   description: "Weak passwords get you hacked. Learn to build a memorable passphrase from three or four random words, and stop reusing the same password across accounts."

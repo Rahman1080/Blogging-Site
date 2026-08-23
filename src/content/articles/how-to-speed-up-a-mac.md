@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-speed-up-a-mac.jpg"
   alt: "Mac with a speedometer icon and app windows in the background"
+  caption: "Apple Laptop"
+  credit: "Photo via StockSnap (CC0)"
 seo:
   title: "How to Speed Up a Slow Mac (Real Fixes)"
   description: "A slow Mac is usually fixable. Free up storage, find the apps eating CPU, trim login items, and keep macOS updated — in that order."

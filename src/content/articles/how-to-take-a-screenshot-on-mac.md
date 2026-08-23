@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-take-a-screenshot-on-mac.jpg"
   alt: "Mac keyboard with the screenshot shortcut keys highlighted"
+  caption: "Stereo Receiver Apple Computer Mouse Painting Subwoofer Books"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "How to Screenshot on a Mac (Every Shortcut)"
   description: "Capture the full screen, a selection, or a window on a Mac with built-in shortcuts. Plus where screenshots go and how to change it."

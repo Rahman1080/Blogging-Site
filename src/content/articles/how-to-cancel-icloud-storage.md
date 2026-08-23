@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-cancel-icloud-storage.jpg"
   alt: "iPhone iCloud storage settings screen with plan options"
+  caption: "H-L Data Storage GT90N - LG Innotek motor for rotating the disc-0159"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Cancel or Change iCloud Storage"
   description: "Downgrade or cancel your iCloud storage plan on iPhone in a few taps — and learn what happens to your photos, backups, and email when you do."

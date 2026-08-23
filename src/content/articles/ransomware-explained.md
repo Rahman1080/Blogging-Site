@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/ransomware-explained.jpg"
   alt: "Lock icon over a folder with files, symbolizing encrypted data"
+  caption: "Ransomware-pic"
+  credit: "Photo via Wikimedia Commons (Public domain) — screenshot of Motormille2"
 seo:
   title: "Ransomware Explained + How to Avoid It"
   description: "Ransomware explained in plain English: how it gets onto your computer, encrypts your files, and demands payment — and why regular backups are your real defense."

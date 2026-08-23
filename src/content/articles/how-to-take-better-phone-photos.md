@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-take-better-phone-photos.jpg"
   alt: "Hand holding a smartphone toward a well-lit subject with a camera grid overlay"
+  caption: "Smartphone Camera"
+  credit: "Photo via StockSnap (CC0)"
 seo:
   title: "How to Take Better Photos With Your Phone"
   description: "Improve phone photos with habits and settings: clean the lens, tap to focus, use natural light, turn on the grid, and edit with built-in tools."

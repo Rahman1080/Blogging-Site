@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/two-factor-authentication-explained.jpg"
   alt: "Phone showing a six-digit authentication code next to a login screen"
+  caption: "Google Titan Security Key - Two Factor Authentication (47400104011)"
+  credit: "Photo via Wikimedia Commons (CC BY)"
 seo:
   title: "Two-Factor Authentication (2FA) Explained"
   description: "What two-factor authentication is, whether it's worth it, authenticator apps versus text message codes, and how to turn on 2FA for your most important accounts."

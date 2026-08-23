@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/mac-storage-full.jpg"
   alt: "Mac About This Mac storage bar nearly full with color categories"
+  caption: "UF Norman Office Laptop Desk Workstation"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Mac Storage Full? How to Free Up Space Fast"
   description: "See exactly what's taking up space on your Mac with built-in tools, then clear the usual culprits — safely and free."

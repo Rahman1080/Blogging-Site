@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/what-is-a-vpn.jpg"
   alt: "Encrypted data tunnel icon between a laptop and a remote server"
+  caption: "Netgear ProSafe Dual WAN VPN Gigabit Firewall FVS336G front"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "What Is a VPN and What Does It Really Do?"
   description: "VPNs explained honestly: what they encrypt and hide, what they don't do, when to use one on public Wi-Fi and while travelling, and the truth about free VPNs."

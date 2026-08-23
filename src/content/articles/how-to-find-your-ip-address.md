@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-find-your-ip-address.jpg"
   alt: "Laptop showing a network settings screen with an IP address field"
+  caption: "McGill University computer network map"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "How to Find Your IP Address (Windows, Mac, Phone)"
   description: "Find your IP address on Windows, Mac, iPhone, and Android. Learn the difference between public and private IPs and where to look on each device."

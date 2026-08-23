@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-use-phone-as-hotspot.jpg"
   alt: "Smartphone broadcasting a wifi signal to a laptop"
+  caption: "Apple-iphone-smartphone-fruits (23699680083)"
+  credit: "Photo via Wikimedia Commons (CC0) — www.Pixel.la Free Stock Photos"
 seo:
   title: "How to Use Your Phone as a Hotspot"
   description: "Turn your Android or iPhone into a mobile hotspot for your laptop in minutes. Setup steps, password security, data usage warnings, and speed notes."

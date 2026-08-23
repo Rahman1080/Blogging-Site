@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/wifi-connected-no-internet-windows.jpg"
   alt: "Windows network icon with a yellow warning triangle saying no internet"
+  caption: "ARRIS CM820B DOCSIS Cable Modem"
+  credit: "Photo via Wikimedia Commons (CC BY)"
 seo:
   title: "Wi-Fi Connected But No Internet? 7 Windows Fixes"
   description: "PC shows Wi-Fi connected but no internet access? Restart, forget and rejoin, flush the DNS, and use Windows' built-in network reset to fix it."

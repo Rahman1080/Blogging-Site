@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-edit-photos-with-ai.jpg"
   alt: "Photo being edited with an AI background-removal tool"
+  caption: "Wikipedia Pages Wanting Photos Edit-a-thon group photo"
+  credit: "Photo via Wikimedia Commons (CC BY-SA)"
 seo:
   title: "How to Edit Photos With AI (2026)"
   description: "How to edit photos with AI: remove backgrounds, sharpen blurry images, and restore old photos step by step using free and built-in tools on any device."

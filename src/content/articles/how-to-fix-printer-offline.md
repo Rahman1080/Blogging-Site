@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-fix-printer-offline.jpg"
   alt: "Printer with an offline status icon on a computer screen"
+  caption: "『If nothing happens — Check printer 』"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Printer Offline? Fix It on Windows & Mac"
   description: "Printer says offline but it's connected? Work through these fixes in order: power, connection, spooler, default printer, and drivers — for Windows and Mac."

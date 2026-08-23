@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-check-pc-specs-windows.jpg"
   alt: "Windows Settings About page showing CPU, RAM, and device name"
+  caption: "Computer motherboard close up"
+  credit: "Photo via Rawpixel (CC0)"
 seo:
   title: "How to Check PC Specs on Windows 11"
   description: "See your CPU, RAM, GPU, and storage in Windows 11 using Settings, Task Manager, or System Information — no third-party apps required."

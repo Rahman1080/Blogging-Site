@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/ai-chatbot-privacy-data.jpg"
   alt: "Laptop with a lock icon next to a chat window"
+  caption: "5 different Smartphones"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Kskhh"
 seo:
   title: "AI Chatbot Privacy: What Happens to Your Data"
   description: "AI chatbot privacy basics in plain English: what data ChatGPT and other chatbots store, the settings that control it, and what you should never paste."

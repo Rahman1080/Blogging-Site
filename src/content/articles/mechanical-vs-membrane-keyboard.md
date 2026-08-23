@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/mechanical-vs-membrane-keyboard.jpg"
   alt: "Close-up of a mechanical keyboard key switch next to a membrane key"
+  caption: "Keyboard"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "Mechanical vs Membrane Keyboard: Which?"
   description: "Feel, sound, price, and lifespan — the real difference between mechanical and membrane keyboards, plus which one is right for you."

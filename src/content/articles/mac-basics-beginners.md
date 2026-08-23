@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/mac-basics-beginners.jpg"
   alt: "Mac desktop showing the Dock and menu bar with labels"
+  caption: "White 13' Apple Macbook 2.4 GHz, 10/31/08 - 6 of 63"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Mac Basics for Beginners: Get Started Fast"
   description: "New to Mac? Learn the menu bar, Dock, trackpad gestures, app installation, and how to quit apps for real — the basics in plain English."

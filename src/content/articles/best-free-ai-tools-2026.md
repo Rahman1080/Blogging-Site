@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/best-free-ai-tools-2026.jpg"
   alt: "Collage of common free AI tool logos arranged by category"
+  caption: "Robotic Parenting"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Best Free AI Tools Everyone Should Know"
   description: "Genuinely useful free AI tools for writing, images, audio, study, and everyday work — with honest notes on free-tier limits, watermarks, and data use."

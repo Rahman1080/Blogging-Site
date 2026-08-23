@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/laptop-wont-turn-on.jpg"
   alt: "Laptop with a power button and a question mark, plugged in"
+  caption: "Laptop Power"
+  credit: "Photo via StockSnap (CC0)"
 seo:
   title: "Laptop Won't Turn On? Try These 7 Fixes"
   description: "Laptop won't turn on even when plugged in? Work through power, battery, and display checks in order — before you pay for a repair."

@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-set-up-parental-controls.jpg"
   alt: "Parent holding a phone with a child and a parental controls shield icon"
+  caption: "Children's Heaven Computer Class"
+  credit: "Photo via Wikimedia Commons (CC BY-SA 4.0) — Mahmud Imran"
 seo:
   title: "Set Up Parental Controls (Android & iPhone)"
   description: "Put parental controls on a child's phone: Family Link on Android, Screen Time on iPhone. App approval, content limits, downtime, and purchase controls."

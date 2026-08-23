@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/apps-not-updating-fix.jpg"
   alt: "App store update list with one app stuck and a warning icon"
+  caption: "BA mobile app for iPhone - Mobile boarding pass"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "Apps Not Updating on Android or iPhone? Fixes"
   description: "Apps stuck on 'Waiting' or failing to update on the Play Store or App Store? Here's a fix ladder: connection, restart, cache, storage, and sign-in."

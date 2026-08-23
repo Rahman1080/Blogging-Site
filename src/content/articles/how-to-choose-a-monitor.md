@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/how-to-choose-a-monitor.jpg"
   alt: "Work desk with a large monitor next to a laptop"
+  caption: "Classroom Display - Chinye"
+  credit: "Photo via Flickr (CC BY)"
 seo:
   title: "How to Choose a Monitor (Size, Resolution, Panel)"
   description: "What size monitor? 1080p, 1440p, or 4K? IPS or VA? A plain guide to choosing a monitor for work or home without overpaying."

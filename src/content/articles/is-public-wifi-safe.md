@@ -12,6 +12,8 @@ featured: false
 featuredImage:
   src: "/images/covers/is-public-wifi-safe.jpg"
   alt: "Person with a laptop on a coffee shop table with a Wi-Fi symbol"
+  caption: "Columbia Heights coffee shop"
+  credit: "Photo via Flickr (CC BY-SA)"
 seo:
   title: "Is Public Wi-Fi Safe? How to Stay Safe"
   description: "Wondering if public Wi-Fi is safe? Learn the real risks, from snooping on open networks to fake hotspots, and the practical habits that keep you safe."
