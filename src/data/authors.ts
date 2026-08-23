@@ -6,6 +6,8 @@
 export interface Author {
   slug: string;
   name: string;
+  /** Editorial role at this publication (e.g. "Editorial team"). */
+  role?: string;
   bio: string;
   /** Optional avatar, placed in public/images/authors/. */
   image?: string;
@@ -17,7 +19,8 @@ export const authors: Author[] = [
   {
     slug: "info-24-7-editorial-team",
     name: "Info 24/7 Editorial Team",
-    bio: "The Info 24/7 editorial team researches, tests, and writes practical evergreen tech guides — reviewed and fact-checked before publication.",
+    role: "Editorial team",
+    bio: "The Info 24/7 editorial team researches, tests, and writes practical evergreen tech guides — reviewed and fact-checked before publication. We cover everyday technology problems across Android, iPhone, Windows, Mac, AI, cybersecurity, and the internet, and we keep guides updated as things change.",
   },
 ];
 

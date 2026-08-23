@@ -109,8 +109,10 @@ For everyday life, AI tools are best treated as a very knowledgeable, occasional
 
 That's exactly how this website uses AI: as a drafting tool for [our articles](/articles), where every piece is reviewed and edited by humans before it's published.
 
+Curious where this is heading? Our [plain-English guide to AI agents](/articles/ai-agents-explained) explains the next step, and if you'd rather keep your data off cloud servers, here's [how to run AI on your own computer](/articles/run-ai-on-your-computer-local-ai).
+
 ## Wrapping up
 
 AI is pattern-matching at massive scale, wrapped in a very convincing interface. It's a genuinely useful tool, and it's worth learning to use it well — just keep a healthy dose of skepticism about everything it tells you.
 
-If you're writing content, our [guide to starting a blog](/articles/how-to-start-a-blog) shows how to use AI responsibly there too, and our [password manager guide](/articles/password-manager-guide) covers the security side of your digital life.
+If you're writing content, our [guide to starting a blog](/articles/how-to-start-a-blog) shows how to use AI responsibly there too, and our [password manager guide](/articles/password-manager-guide) covers the security side of your digital life. Not everyone using AI has good intentions, so it's worth reading our [guide to spotting AI scam calls and deepfakes](/articles/ai-scams-deepfake-calls) as well.

@@ -82,6 +82,8 @@ Android phones slow down noticeably when storage is nearly full — the system n
 
 > Tip: If you store hundreds of videos, moving them to Google Photos or a cloud drive is the fastest way to reclaim space.
 
+Need more ideas? Our full [guide to freeing up storage space on your phone](/articles/free-up-storage-phone) walks through every trick — and it applies to iPhones too.
+
 ## 3. Clear app caches
 
 Cached data helps apps open faster, but an overgrown cache can cause lag.

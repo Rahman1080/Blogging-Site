@@ -9,6 +9,7 @@ tags: ["buying-guide", "laptops", "comparison", "technology", "how-to"]
 type: "buying-guide"
 draft: false
 featured: true
+affiliate: true
 featuredImage:
   src: "/images/covers/how-to-choose-a-laptop-buying-guide.jpg"
   alt: "A laptop on a desk, representing how to choose the right laptop"
